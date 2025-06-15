@@ -65,13 +65,7 @@ CLASS zcl_llm_00_predictoken DEFINITION
         !iv_       TYPE string
       RETURNING
         VALUE(rs_) TYPE ts_features .
-    CLASS-METHODS new_for_llm
-      IMPORTING
-        !io_llm    TYPE REF TO zif_llm_00_llm_lazy
-        !iv_min    TYPE i OPTIONAL
-          PREFERRED PARAMETER !io_llm
-      RETURNING
-        VALUE(ro_) TYPE REF TO zcl_llm_00_predictoken .
+
   PROTECTED SECTION.
   PRIVATE SECTION.
 
@@ -185,15 +179,6 @@ CLASS ZCL_LLM_00_PREDICTOKEN IMPLEMENTATION.
       iv_min = iv_min
     ).
   ENDMETHOD.
-
-
-  METHOD new_for_llm.
-    ro_ = new_for_model_type(
-      iv_    = io_llm->get_config( )-model_type
-      iv_min = iv_min
-    ).
-  ENDMETHOD.
-
 
   METHOD new_for_model_type.
     CASE iv_.
