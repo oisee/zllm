@@ -208,7 +208,7 @@ PREDICTOKEN uses **linear regression** trained on diverse text corpora:
 ## Documentation
 
 ### Technical Articles
-- **LinkedIn:** [PREDICTOKEN: Fast, Local Token Count Prediction](your-linkedin-url)
+- **LinkedIn:** [PREDICTOKEN: Fast, Local Token Count Prediction](https://www.linkedin.com/pulse/predictoken-fast-local-token-count-prediction-ai-alice-vinogradova-z2duc)
 - **SAP Community:** Coming soon
 - **Medium:** Coming soon
 - **Technical Deep-Dive:** See [Implementation](IMPLEMENTATION.md)
