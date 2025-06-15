@@ -1,0 +1,36 @@
+# ABAP specific
+*.abap.bak
+*.abap.orig
+*.abap.swp
+# Generated files
+.claude/
+.claude/*
+.claude.json
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Models (optional - might want to include trained models)
+# *.pkl
+# *.joblib
