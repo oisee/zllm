@@ -1,0 +1,27 @@
+{
+    "global": {
+        "files": "/src/**/*.*"
+    },
+    "dependencies": [
+    ],
+    "syntax": {
+        "version": "v755",
+        "errorNamespace": "^(Z|Y|LCL_|TY_|TS_|TT_|TTR_|LIF_)"
+    },
+    "rules": {
+        "7bit_ascii": true,
+        "ambiguous_statement": true,
+        "parser_missing_space": true,
+        "begin_end_names": true,
+        "check_ddic": true,
+        "check_include": true,
+        "check_syntax": true,
+        "global_class": true,
+        "implement_methods": true,
+        "method_implemented_twice": true,
+        "parser_error": true,
+        "superclass_final": true,
+        "unknown_types": true,
+        "xml_consistency": true
+    }
+}
