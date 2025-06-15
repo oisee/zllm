@@ -27,20 +27,26 @@ DATA(lv_tokens) = lo_predictor->predict( lv_your_text ).
 | **PREDICTOKEN** | **0.987** | **±3%** | **Regex only** | **0** |
 | Tokenizer API | 1.000 | 0% | Network + API | Every time |
 
-**Performance:** < 1ms prediction time vs 200-500ms for API calls
+**Performance:** Theoretical < 1ms prediction time vs 200-500ms for API calls
 
 ## Repository Structure
 
 ```
 zllm/
-├── _predictoken/           # PREDICTOKEN training & utilities
-│   ├── train_models.py     # Train regression models
-│   ├── predict.py          # Test predictions
-│   ├── generate_dataset.py # Create training data
-│   └── utils.py           # Helper functions
-├── abaplint.jsonc         # Code quality configuration
-├── requirements.txt       # Python dependencies
-└── README.md             # This file
+├── README.md                   # Project documentation
+├── requirements.txt            # Python dependencies
+├── abaplint.jsonc             # ABAP code quality configuration
+│
+├── _predictoken/              # PREDICTOKEN training data & models
+│   ├── linear_regression_model.joblib    # Trained model file
+│   ├── stats_4_training.tsv              # Training dataset
+│   └── stats_4_training_B.tsv            # Additional training data (result of "generate_dataset.py", not to overwrite "stats_4_training.tsv" )
+│
+├── *your*specific_dataset/    # Placeholder for your training data
+├── generate_dataset.py        # Dataset generation from text files
+├── train_models.py           # Model training script
+├── predict.py                # Prediction testing script
+└── utils.py                  # Helper functions
 ```
 
 ## Installation & Usage
@@ -52,15 +58,47 @@ zllm/
    pip install -r requirements.txt
    ```
 
-2. **Train models:**
+2. **Generate training dataset from your own text files:**
    ```bash
-   python _predictoken/train_models.py
+   # Train on ABAP code and documentation
+   python generate_dataset.py --input-dirs ./your_abap_code/ --extensions .abap .md
+   
+   # Train on any text files (Python, Java, documentation, etc.)
+   python generate_dataset.py --input-dirs ./*your*specific_dataset/ --extensions .py .java .txt .md
+   
+   # Multiple directories and file types
+   python generate_dataset.py --input-dirs ./code/ ./docs/ ./specs/ --extensions .abap .py .md .txt
    ```
 
-3. **Test predictions:**
+3. **Train models on your dataset:**
    ```bash
-   python _predictoken/predict.py "your text here"
+   python train_models.py
    ```
+
+4. **Test predictions:**
+   ```bash
+   python predict.py "your text here"
+   ```
+
+### Custom Training Features
+
+- **Any Text Format**: Train on code, documentation, specifications, or mixed content
+- **Multiple File Types**: Support for .abap, .py, .java, .md, .txt, and more
+- **Flexible Datasets**: Combine different text types for robust predictions
+- **Domain Adaptation**: Optimize for your specific text patterns and vocabulary
+
+### Training Data Examples
+
+```bash
+# Use your specific dataset directory
+python generate_dataset.py --input-dirs ./*your*specific_dataset/ --extensions .md .txt
+
+# Mixed programming languages  
+python generate_dataset.py --input-dirs ./src/ --extensions .py .java .js .abap
+
+# Technical writing
+python generate_dataset.py --input-dirs ./articles/ ./blogs/ --extensions .md .txt
+```
 
 ### ABAP Integration
 
@@ -70,23 +108,29 @@ zllm/
 
 ## PREDICTOKEN Performance
 
-**Training Results:**
-- **GPT-4 Model:** R² = 0.987, MAE = 2.3 tokens
-- **Mistral Model:** R² = 0.981, MAE = 2.8 tokens
-- **Feature Engineering:** 7 linguistic features (words, punctuation, etc.)
-
-**Runtime Performance:**
-- **Prediction Time:** < 1ms
+**Theoretical Performance:**
+- **Prediction Time:** < 1ms (simple arithmetic operations)
 - **Memory Usage:** 7 coefficients vs millions of parameters
 - **Dependencies:** ABAP regex only
+
+**Training Capabilities:**
+- **Accuracy Target:** R² > 0.98 for most text domains
+- **Feature Engineering:** 7 linguistic features (words, punctuation, etc.)
+- **Model Types:** Separate models for GPT-4 and Mistral tokenizers
 
 ## Use Cases
 
 ### Enterprise AI Integration
 - **Pre-flight checks** before expensive API calls
-- **Cost estimation** for LLM operations
+- **Cost estimation** for LLM operations  
 - **Batch optimization** without tokenizer round-trips
 - **Edge AI scenarios** with no network connectivity
+
+### Custom Domain Applications
+- **Technical Documentation** - Train on your company's docs and specs
+- **Programming Languages** - Optimize for Python, Java, JavaScript, ABAP, etc.
+- **Mixed Content** - Handle code + documentation + business text
+- **Domain-Specific Text** - Legal documents, scientific papers, etc.
 
 ### Development Scenarios
 - **Air-gapped systems** - No external API access
@@ -100,10 +144,26 @@ zllm/
 
 PREDICTOKEN uses **linear regression** trained on diverse text corpora:
 
-1. **Feature Extraction:** 7 linguistic features per text
-2. **Model Training:** Separate models for each tokenizer
-3. **Coefficient Export:** Python coefficients → ABAP constants
-4. **Runtime Prediction:** Simple arithmetic (7 multiplications + additions)
+1. **Dataset Generation:** Process any text files (.abap, .py, .md, .txt, etc.)
+2. **Feature Extraction:** 7 linguistic features per text sample
+3. **Multi-Model Training:** Separate models for each tokenizer (GPT-4, Mistral)
+4. **Coefficient Export:** Python coefficients → ABAP constants
+5. **Runtime Prediction:** Simple arithmetic (7 multiplications + additions)
+
+### Training Data Flexibility
+
+**Supported Formats:**
+- Source code (.abap, .py, .java, .js, .cpp, etc.)
+- Documentation (.md, .txt, .rst)  
+- Mixed content (code + comments + docs)
+- Domain-specific text (legal, scientific, technical)
+
+**Dataset Generation Features:**
+- Automatic file discovery across directories
+- Configurable file extensions
+- Feature extraction and validation
+- Token count verification with actual tokenizers
+- Export to training-ready format
 
 ### Why Linear Regression Works
 
@@ -112,14 +172,16 @@ PREDICTOKEN uses **linear regression** trained on diverse text corpora:
 - **Fast** - Constant time regardless of text length
 - **Reliable** - No black-box failures
 - **Lightweight** - 7 coefficients vs millions of parameters
+- **Adaptable** - Retrain on your specific text domain
 
 ## Roadmap
 
 ### Current Release: PREDICTOKEN
-- Token count prediction for GPT-4 and Mistral
-- Python training pipeline
-- ABAP implementation with demo
-- Performance validation (R² > 0.98)
+- Token count prediction framework
+- Python training pipeline with dataset generation
+- Trained model artifacts (linear_regression_model.joblib)
+- Training datasets (stats_4_training.tsv)
+- ABAP implementation (coming soon)
 
 ### Coming Soon: Full ZLLM Framework
 - **Core Orchestration** - LLM provider abstractions
@@ -156,18 +218,21 @@ PREDICTOKEN uses **linear regression** trained on diverse text corpora:
 
 ## Performance Benchmarks
 
-Tested on real ABAP source code:
+### Theoretical Performance
+Based on the linear regression approach:
 
-```
-Sample Size    | GPT Predicted | Mistral Predicted | Actual Time
----------------|---------------|-------------------|-------------
-Small (100c)   | 25 tokens     | 28 tokens        | 8μs
-Medium (5K)    | 1,247 tokens  | 1,389 tokens     | 45μs  
-Large (20K)    | 4,923 tokens  | 5,456 tokens     | 156μs
-Mega (80K)     | 19,734 tokens | 21,891 tokens    | 523μs
-```
+- **Prediction Time:** < 1ms (7 multiplications + 7 additions + ceiling operation)
+- **Memory Usage:** 7 coefficients vs millions of parameters in neural models
+- **Scalability:** Linear with text length (constant feature extraction cost)
 
-**Key Insight:** Linear scaling with text size, consistently sub-millisecond performance.
+### Training Accuracy (When Trained)
+The linear regression approach typically achieves:
+
+- **R² Score:** > 0.98 for most text domains
+- **Mean Absolute Error:** 2-4 tokens for typical samples
+- **Consistency:** Stable predictions across different text sizes
+
+**Note:** Actual benchmarks will be added once comprehensive testing is completed across different domains and hardware configurations.
 
 ## License
 

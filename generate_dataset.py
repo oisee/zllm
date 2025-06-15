@@ -172,7 +172,8 @@ def main():
     parser.add_argument(
         '--input-dirs', 
         nargs='+',
-        default=['./_abap_code/'],
+        #default=['./_abap_code/'],
+        default=['./_your_specific_dataset/'],
         help='Input directories containing text files (default: ./_abap_code/)'
     )
     parser.add_argument(
