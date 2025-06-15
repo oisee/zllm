@@ -1,3 +1,4 @@
+*:sec.end*
 # ABAP specific
 *.abap.bak
 *.abap.orig
