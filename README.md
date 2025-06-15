@@ -210,11 +210,11 @@ PREDICTOKEN uses **linear regression** trained on diverse text corpora:
 ### Technical Articles
 - **LinkedIn:** [PREDICTOKEN: Fast, Local Token Count Prediction](your-linkedin-url)
 - **SAP Community:** Coming soon
+- **Medium:** Coming soon
 - **Technical Deep-Dive:** See [Implementation](IMPLEMENTATION.md)
 
 ### Related Projects
 - **ZVDB:** [Vector Database in pure ABAP](https://github.com/oisee/zvdb)
-- **Microsoft AI SDK for ABAP:** Integration dependency
 
 ## Performance Benchmarks
 
