@@ -38,6 +38,12 @@ For a deep-dive into the framework and its capabilities, please see the [GUIDE.m
 - **Token Prediction**: Estimate token usage without API calls (99.7% accuracy)
 - **Error Recovery**: Robust error handling with retry mechanisms
 
+### 🔐 Security Features
+- **Encoded Storage**: All virtual filesystem files are automatically encoded using symmetric encryption
+- **Configurable Seeds**: Set custom encryption seeds via `ZLLM_CODEC` parameter
+- **API Key Protection**: Credentials are never stored in plain text
+- **User Isolation**: Each user's data is encoded with their specific seed
+
 ### 🛠️ Developer Experience
 - **Simple API**: Intuitive interfaces for common tasks
 - **REPL Environment**: Interactive development and testing
@@ -153,9 +159,43 @@ ENDIF.
 | **PREDICTOKEN** | **0.997** | **±3%** | **<1ms** | **Free** |
 | Actual tokenizer | 1.000 | Perfect | Network latency | API cost |
 
+## Configuration
+
+ZLLM supports multiple LLM providers through flexible .env configuration files:
+
+### OpenAI-Compatible APIs (Ollama, LM Studio, OpenAI)
+```env
+# Local Ollama
+API_MODEL=devstral
+API_URL=http://192.168.8.107:11434/
+API_KEY=ollama
+API_MAX_TOKEN=64000
+API_TOKEN_SPLIT_LIMIT=24000
+```
+
+### Azure OpenAI
+```env
+# Azure OpenAI Configuration
+API_AZURE_FULL_URL=https://yourdomain.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-01-01-preview
+API_KEY=your-azure-api-key
+#API_MAX_TOKEN=4000
+#API_MODEL=gpt-4o  # Optional: Override deployment name
+```
+
+### OpenAI Direct
+```env
+API_MODEL=gpt-4o-mini
+API_URL=https://api.openai.com/v1/
+API_KEY=sk-your-api-key
+API_MAX_TOKEN=16384
+```
+
 ## Getting Started
 
-1. **Run the Onboarding Program**: `ZLLM_00_ONBOARD` - Sets up your environment and validates configurations
+1. **Run the Onboarding Program**: `ZLLM_00_ONBOARD`
+   - Start with basic setup (single LLM configuration)
+   - Press F4 for Expert Mode to configure multiple model variants
+   - Use F3 to test and save your configurations automatically
 2. **Try the Demo**: `ZLLM_00_FLOW_DEMO` - See basic chaining in action
 3. **Explore the REPL**: `ZLLM_00_REPL` - Interactive development environment
 4. **Read the Guide**: [GUIDE.md](GUIDE.md) - Comprehensive documentation with examples
@@ -167,6 +207,7 @@ ENDIF.
 - **Template Engine**: Powerful pattern system that handles deep structures, tables, and JSON
 - **Error Resilience**: Built-in retry logic and error handling
 - **Zero Dependencies**: Pure ABAP implementation, no external libraries needed
+- **Secure Storage**: Virtual filesystem with automatic encoding using configurable symmetric encryption
 
 ## Documentation
 

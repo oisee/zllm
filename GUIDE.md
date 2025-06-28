@@ -333,14 +333,87 @@ ENDIF.
 
 ### 4. Environment Configuration
 
+ZLLM supports multiple LLM providers through flexible .env configuration files. The framework automatically detects the endpoint type based on the configuration parameters.
+
+#### OpenAI-Compatible Endpoints (Ollama, LM Studio, etc.)
+
+```env
+# For local Ollama instance
+API_MODEL=devstral
+API_URL=http://192.168.8.107:11434/
+API_KEY=ollama
+API_MAX_TOKEN=64000
+API_TOKEN_SPLIT_LIMIT=24000
+```
+
+```env
+# For OpenAI API
+API_MODEL=gpt-4o-mini
+API_URL=https://api.openai.com/v1/
+API_KEY=sk-your-openai-api-key
+API_MAX_TOKEN=16384
+API_TOKEN_SPLIT_LIMIT=12000
+```
+
+#### Azure OpenAI Endpoints
+
+```env
+# Azure OpenAI Configuration
+API_AZURE_FULL_URL=https://yourdomain.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-01-01-preview
+API_KEY=your-azure-api-key
+
+# Token Limits (optional, uses defaults if not specified)
+#API_MAX_TOKEN=4000
+#API_TOKEN_SPLIT_LIMIT=3000
+
+# Optional: Override model name (defaults to deployment name from URL)
+#API_MODEL=gpt-4o
+
+# Optional: Embedding deployment
+#API_DEP_EMBED=ada-002
+```
+
+#### Configuration Parameters
+
+| Parameter | Description | Required | Default |
+|-----------|-------------|----------|---------|
+| `API_MODEL` | Model name/ID | Yes (except Azure) | - |
+| `API_URL` | Base URL for OpenAI-compatible APIs | Yes (non-Azure) | - |
+| `API_AZURE_FULL_URL` | Full Azure OpenAI endpoint URL | Yes (Azure only) | - |
+| `API_KEY` | API authentication key | Yes | - |
+| `API_MAX_TOKEN` | Maximum tokens per request | No | Model default |
+| `API_TOKEN_SPLIT_LIMIT` | Token limit for splitting large inputs | No | 75% of max |
+| `API_DEP_EMBED` | Azure embedding deployment name | No | - |
+| `TEMPERATURE` | LLM temperature setting | No | 0.7 |
+
+#### Usage in ABAP
+
 ```abap
 " Load from .env file
 DATA(lo_dotenv) = zcl_llm_00_dotenv=>new( 'DEFAULT.ENV' ).
 
 " Access configuration
-DATA(lv_model) = lo_dotenv->get( 'MODEL' ).
-DATA(lv_temp)  = lo_dotenv->get( 'TEMPERATURE' ).
-DATA(lv_limit) = lo_dotenv->get( 'MAX_TOKENS' ).
+DATA(lv_model) = lo_dotenv->get( 'API_MODEL' ).
+DATA(lv_key)   = lo_dotenv->get( 'API_KEY' ).
+DATA(lv_limit) = lo_dotenv->get( 'API_MAX_TOKEN' ).
+
+" Create LLM with specific config
+DATA(lo_llm) = zcl_llm=>new( 'OLLAMA.ENV' ).     " Local Ollama
+DATA(lo_llm) = zcl_llm=>new( 'AZURE.ENV' ).      " Azure OpenAI
+DATA(lo_llm) = zcl_llm=>new( 'OPENAI.ENV' ).     " OpenAI API
+```
+
+#### Multiple Configurations
+
+Create different .env files for various use cases:
+
+```bash
+DEFAULT.ENV      # Your primary configuration
+MINI.ENV         # Fast, lightweight model for simple tasks
+MAXI.ENV         # Powerful model for complex tasks
+DEEP.ENV         # Low temperature for analytical tasks
+LOCAL.ENV        # Local Ollama for development
+PROD.ENV         # Production Azure deployment
 ```
 
 ### 5. Custom Patterns
@@ -355,14 +428,121 @@ DATA(lo_pat) = zcl_llm_00_pat=>new(
 ).
 ```
 
+### 6. Virtual Filesystem Security
+
+ZLLM includes a virtual filesystem for storing configurations, patterns, and cached data. All files are automatically encoded for security.
+
+#### Encoding Mechanism
+
+Files in the virtual filesystem are protected using a lightweight symmetric encryption:
+- **Algorithm**: Multiple random XOR operations
+- **Configurable**: Set your own seed via the `ZLLM_CODEC` parameter
+- **Automatic**: Encoding/decoding happens transparently
+
+#### Configuration
+
+```abap
+" Set custom codec seed (optional)
+SET PARAMETER ID 'ZLLM_CODEC' FIELD '12345'.
+
+" The codec is automatically applied when using file operations
+DATA(lo_file_list) = zcl_llm_00_file_list_bin=>new_from_bin( '$ZLLM' ).
+DATA(lo_file) = lo_file_list->get( 'DEFAULT.ENV' ).
+" File content is automatically decoded when read
+```
+
+#### Security Benefits
+
+- **Protection at Rest**: Configuration files and API keys are never stored in plain text
+- **User Isolation**: Each user's files are encoded with their specific seed
+- **Lightweight**: Minimal performance impact while providing basic security
+- **Transparent**: No code changes needed - encoding happens automatically
+
+#### Custom Codec Implementation
+
+```abap
+" Create custom codec with specific seed
+DATA(lo_codec) = zcl_llm_00_codec=>new( iv_seed = 42 ).
+
+" Use with cache for encoded storage
+DATA(lo_cache) = zcl_llm_00_cache=>new(
+  iv_seed  = 42
+  io_codec = lo_codec
+).
+```
+
+**Note**: This is lightweight encoding, not enterprise-grade encryption. For highly sensitive data, use additional security measures.
+
 ## Demo Programs
 
 ### 1. ZLLM_00_ONBOARD - Setup and Testing
 
-Run this first to set up your environment:
-- Creates .env configuration files
-- Tests LLM connectivity
-- Validates different model variants
+The onboarding program is your starting point for configuring and testing ZLLM. It provides a comprehensive interface for managing multiple LLM configurations.
+
+#### Main Features
+
+**Configuration Management**:
+- Configure up to 4 different LLM variants simultaneously:
+  - **Default**: Your primary LLM configuration
+  - **Mini**: Lightweight model for simple tasks (1000 token limit)
+  - **Maxi**: Powerful model for complex tasks (8000 token limit)
+  - **Deep**: Analytical model with low temperature (0.1) for precise reasoning
+
+**Function Keys**:
+- **F1 (Test All)**: Tests all enabled LLM configurations
+- **F2 (Save All)**: Saves all enabled configurations as .env files
+- **F3 (Test & Save)**: Tests first, then saves if successful
+- **F4 (Expert Mode)**: Toggle visibility of advanced configurations
+
+#### Expert Mode
+
+By default, only the Default configuration is visible. Press **F4** to enable Expert Mode, which reveals:
+- Mini, Maxi, and Deep configuration options
+- Ability to configure multiple LLM endpoints
+- Advanced testing scenarios
+
+This simplified interface helps new users get started quickly while providing power users with full control.
+
+#### Configuration Process
+
+1. **Basic Setup** (Non-Expert Mode):
+   - Enter your Azure OpenAI URL and API key in the Default section
+   - Check the "Enable" checkbox
+   - Press F3 to test and save
+
+2. **Advanced Setup** (Expert Mode):
+   - Press F4 to enable Expert Mode
+   - Configure multiple variants with different models/deployments
+   - Each variant can have different token limits and settings
+   - Test all configurations simultaneously with F1
+
+#### Generated .env Files
+
+The program creates environment files with appropriate settings:
+
+```env
+# Default configuration
+DEFAULT.ENV         # Standard configuration
+
+# Expert mode variants
+DEFAULT-MIN.ENV     # Mini model (1000 tokens, fast)
+DEFAULT-MAX.ENV     # Maxi model (8000 tokens, powerful)
+DEFAULT-DEEP.ENV    # Deep thinking (low temperature)
+```
+
+#### Testing
+
+The program includes a test question field that sends a query to each enabled LLM:
+- Default: "Tell me a joke about a killeroo. (Mighty-Boosh)"
+- Validates connectivity and response
+- Shows success/failure for each configuration
+
+#### File Storage
+
+Configurations are stored in a binary object (SMW0 or similar) with user-specific namespacing:
+- Format: `$ZLLM_<username>`
+- Allows multiple users to maintain separate configurations
+- Persists across sessions
 
 ### 2. ZLLM_00_FLOW_DEMO - Basic Flow Example
 
