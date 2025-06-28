@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LLM</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>shortcut to common services</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CLASS_CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREDICT_TOKENS_FOR_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>predict tokens for string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREDICT_TOKENS_FOR_TAB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>predict tokens for sting_t</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>STRING_HASH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>SHA1</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>STRING_TO_TAB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>string to string_t (split by zif_col=&gt;n, cr_lf -&gt; n)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TAB_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>tab to string (string_t to string)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TSTRING_HASH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>SHA1</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>XSTRING_HASH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>SHA1</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_PREDICTOKEN</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Predict Token Counts</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREDICT_TOKENS_FOR_STRING</CMPNAME>
+     <SCONAME>IO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Predict Token Counts</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREDICT_TOKENS_FOR_TAB</CMPNAME>
+     <SCONAME>IO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Predict Token Counts</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREDICT_TOKENS_FOR_TAB</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>STRING_TO_TAB</CMPNAME>
+     <SCONAME>RT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>TAB_TO_STRING</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>TSTRING_TO_XSTRING</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>XSTRING_TO_MIME</CMPNAME>
+     <SCONAME>RT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table for HTML File</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

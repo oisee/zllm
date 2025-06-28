@@ -1,0 +1,26 @@
+CLASS lcl_ DEFINITION DEFERRED.
+
+CLASS zcl_llm_00_cache_never DEFINITION LOCAL FRIENDS lcl_.
+
+CLASS lcl_ DEFINITION FOR TESTING
+  RISK LEVEL HARMLESS
+  DURATION SHORT.
+
+  PRIVATE SECTION.
+    DATA: mo_cut TYPE REF TO zif_llm_00_cache.
+
+    METHODS setup.
+    METHODS test_new FOR TESTING.
+ENDCLASS.
+
+CLASS lcl_ IMPLEMENTATION.
+
+  METHOD setup.
+    mo_cut = zcl_llm_00_cache_never=>new( ).
+  ENDMETHOD.
+
+  METHOD test_new.
+
+  ENDMETHOD.
+
+ENDCLASS.

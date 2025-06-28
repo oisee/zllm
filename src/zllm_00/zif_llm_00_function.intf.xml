@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_LLM_00_FUNCTION</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Get JSON desc. or Invoke Function</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>INVOKE</CMPNAME>
+     <SCONAME>IV_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>filled parameters in JSON</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>INVOKE</CMPNAME>
+     <SCONAME>ZCX_S</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>z-exception static check (base)</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

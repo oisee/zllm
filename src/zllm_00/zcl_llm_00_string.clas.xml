@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LLM_00_STRING</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>any to string</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GV_LLM_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>GPT/MISTRAL</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_DEFAULT_LLM_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>GPT3.5/GPT4 or Mistral</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>_TTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>tab to string (string_t to string)</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_STRING</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>serializable to json</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_STRING_T</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_STRING_T</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>serializable to json</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

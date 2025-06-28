@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LLM_00_TEXT_FORMAT</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Text Formatter</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_EOS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>is End Of Sentence</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>FORMAT_AND_COMMENT</CMPNAME>
+     <SCONAME>RV_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>String Tab</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FORMAT_AND_COMMENT_T</CMPNAME>
+     <SCONAME>RT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>String Tab</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>FORMAT_T</CMPNAME>
+     <SCONAME>RT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>String Tab</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_EOS</CMPNAME>
+     <SCONAME>RV_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Boolean Variable (X=True, Space=False)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Text Formatter</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

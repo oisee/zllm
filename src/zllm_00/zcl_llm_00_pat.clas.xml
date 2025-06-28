@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LLM_00_PAT</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Markdown Template</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CLASS_CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SCOPE_MULTILINE</CMPNAME>
+     <SCONAME>IV_END</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>&lt;/cut&gt; offset end</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SCOPE_MULTILINE</CMPNAME>
+     <SCONAME>IV_START</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>&lt;cut&gt; offset start</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SCOPE_SINGLE_LINE</CMPNAME>
+     <SCONAME>IV_END</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>&lt;/cut&gt; offset end</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SCOPE_SINGLE_LINE</CMPNAME>
+     <SCONAME>IV_START</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>&lt;cut&gt; offset start</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW</CMPNAME>
+     <SCONAME>IV_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>default file name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FOR_FCAT</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Field Catalog for List Viewer Control</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FOR_FCAT</CMPNAME>
+     <SCONAME>IV_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>default file name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FOR_FCAT</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prompt Pattern</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_NAME</CMPNAME>
+     <SCONAME>IO_FL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>File List</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PAD</CMPNAME>
+     <SCONAME>IV_NUM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>number of required symbols</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PAD</CMPNAME>
+     <SCONAME>RV_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>padding</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SPACE</CMPNAME>
+     <SCONAME>IV_NUM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>number of required spaces</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SPACE</CMPNAME>
+     <SCONAME>RV_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>spaces</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>TAB_TO_STRING</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>TAB_TO_STRING_S</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character Type Table</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

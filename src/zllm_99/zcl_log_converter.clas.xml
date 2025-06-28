@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LOG_CONVERTER</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>ZIF_LOG converter to other formats</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>BAPIRET2_TO_FIMSG</CMPNAME>
+     <SCONAME>RS_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>FI Messages</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>BAPIRET2_T_TO_FIMSG_T</CMPNAME>
+     <SCONAME>IT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Return table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>BAPIRET2_T_TO_FIMSG_T</CMPNAME>
+     <SCONAME>RT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>FI Messages</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SY_TO_FIMSG</CMPNAME>
+     <SCONAME>IS_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP System Fields</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SY_TO_FIMSG</CMPNAME>
+     <SCONAME>RS_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>FI Messages</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SY_TO_FIMSG_T</CMPNAME>
+     <SCONAME>IS_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP System Fields</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SY_TO_FIMSG_T</CMPNAME>
+     <SCONAME>RT_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>FI Messages</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

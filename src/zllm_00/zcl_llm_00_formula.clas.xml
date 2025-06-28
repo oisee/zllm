@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LLM_00_FORMULA</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Prompt Formula (sys pat + usr pat)</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_FILES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From Sys and Usr files</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From NAME (and file list)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_NAME_AND_SYS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From NAME (and file list)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_NAME_AND_SYS_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From NAME (and file list)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_PATS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From Sys and Usr Patterns</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_USR_AND_SYS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From NAME (and file list)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NEW_FROM_USR_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>From Sys and Usr files</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_FILES</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prompt Template</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_NAME_AND_SYS</CMPNAME>
+     <SCONAME>IV_SYSTEM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>File</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_NAME_AND_SYS_FILE</CMPNAME>
+     <SCONAME>IO_FILE_SYS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>File</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_USR_AND_SYS</CMPNAME>
+     <SCONAME>IV_SYSTEM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>File</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>NEW_FROM_USR_FILE</CMPNAME>
+     <SCONAME>RO_</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prompt Formula</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
