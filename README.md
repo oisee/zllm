@@ -212,9 +212,8 @@ API_MAX_TOKEN=16384
 ## Documentation
 
 - **[GUIDE.md](GUIDE.md)** - Comprehensive usage guide with examples
-- **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Technical implementation details
-- **[CLAUDE.md](CLAUDE.md)** - Development guidelines for Claude Code
+- **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Technical implementation details of PREDICTOKEN
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE.md) file for details.
