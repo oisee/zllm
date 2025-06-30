@@ -46,7 +46,7 @@ CLASS lcl_ IMPLEMENTATION.
 
   METHOD new_from_string.
 
-    DATA(lo_) = zcl_llm_00_list=>new_from_string( `!keke*0.txt;keke*.txt;keke+.txt;keke.txt`).
+    DATA(lo_) = zcl_llm_00_list=>new_from_string( `!keke*0.txt;keke*.txt;keke+.txt;keke.txt` ).
 
     DATA(ltr_) = lo_->r( ).
     cl_abap_unit_assert=>assert_equals(
