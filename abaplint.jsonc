@@ -3,6 +3,11 @@
         "files": "/src/**/*.*"
     },
     "dependencies": [
+      {
+        "url": "https://github.com/open-abap/open-abap-core",
+        "files": "/src/**/*.*",
+        "folder": "/lint_deps"
+      }
     ],
     "syntax": {
         "version": "v755",
