@@ -200,7 +200,36 @@ API_MAX_TOKEN=16384
 3. **Explore the REPL**: `ZLLM_00_REPL` - Interactive development environment
 4. **Read the Guide**: [GUIDE.md](GUIDE.md) - Comprehensive documentation with examples
 
-## Architecture Highlights
+## Architecture Overview
+
+ZLLM is built on a sophisticated multi-layered architecture designed for enterprise-grade LLM orchestration:
+
+### System Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Application Layer                         │
+│  • Demo Programs (ONBOARD, FLOW_DEMO, REPL, SYNC)          │
+│  • User Applications and Custom Workflows                   │
+├─────────────────────────────────────────────────────────────┤
+│                Flow Orchestration Layer                      │
+│  • Steps (Lazy, Parallel) • Flows • Formulas • Patterns    │
+├─────────────────────────────────────────────────────────────┤
+│                 LLM Integration Layer                        │
+│  • LLM Client • Load Balancer • Composite Router           │
+│  • Response Handler • Retry Logic • Throttling             │
+├─────────────────────────────────────────────────────────────┤
+│                Support Services Layer                        │
+│  • Cache System • File Abstraction • JSON Processing       │
+│  • Token Prediction • Markdown Rendering • Encoding        │
+├─────────────────────────────────────────────────────────────┤
+│                   Data Model Layer                          │
+│  • Graph Storage (NODE/EDGE) • Binary Storage (BIN)        │
+│  • Cache Tables • Code Analytics • Documentation           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Core Design Principles
 
 - **Lazy Execution**: Operations start immediately but don't block, allowing parallel execution
 - **Composable Design**: Steps and flows can be nested infinitely
@@ -209,10 +238,127 @@ API_MAX_TOKEN=16384
 - **Zero Dependencies**: Pure ABAP implementation, no external libraries needed
 - **Secure Storage**: Virtual filesystem with automatic encoding using configurable symmetric encryption
 
+### Key Component Interactions
+
+```mermaid
+graph TB
+    subgraph User["User Layer"]
+        App[Application]
+        Demo[Demo Programs]
+    end
+    
+    subgraph Core["Core Framework"]
+        Factory[ZCL_LLM<br/>Factory]
+        Step[Step Components]
+        Flow[Flow Engine]
+        Pattern[Pattern Engine]
+    end
+    
+    subgraph Services["Services"]
+        Cache[Cache System]
+        Predictor[Token Predictor]
+        Files[File System]
+    end
+    
+    subgraph Integration["LLM Integration"]
+        Client[LLM Client]
+        Balancer[Load Balancer]
+        Response[Response Handler]
+    end
+    
+    App --> Factory
+    Demo --> Factory
+    Factory --> Step
+    Factory --> Flow
+    Step --> Pattern
+    Flow --> Step
+    Step --> Client
+    Client --> Cache
+    Client --> Balancer
+    Balancer --> Response
+    Client --> Predictor
+```
+
+### Database Schema
+
+The framework leverages custom tables for persistence and analytics:
+
+| Table | Purpose | Typical Size |
+|-------|---------|--------------|
+| ZLLM_00_NODE | Graph nodes for code objects | 15,000+ rows |
+| ZLLM_00_EDGE | Relationships between nodes | 500+ rows |
+| ZLLM_00_CACHE | Persistent cache with encoding | 750+ rows |
+| ZLLM_00_BIN | Binary file storage | 250+ rows |
+| ZLLM_00_CCLM | Code lifecycle management | Analytics |
+| ZLLM_00_DOC | Documentation storage | Metadata |
+
+## Key Components
+
+### Core Framework Classes
+
+- **ZCL_LLM**: Main factory class for creating LLM instances and components
+- **ZCL_LLM_00_LLM_LAZY**: HTTP-backed LLM client with caching, throttling, and retry logic
+- **ZCL_LLM_00_LLM_LAZY_BALANCER**: Intelligently routes requests across multiple LLM instances
+- **ZCL_LLM_00_LLM_LAZY_COMPOSITE**: Routes to different models based on token complexity
+
+### Flow Orchestration
+
+- **ZCL_LLM_00_STEP_LAZY**: Basic unit of LLM interaction with lazy execution
+- **ZCL_LLM_00_STEP_LAZY_PARALLEL**: Enables parallel processing of multiple inputs
+- **ZCL_LLM_00_FLOW_LAZY**: Chains steps sequentially with automatic result propagation
+- **ZCL_LLM_00_FLOW_RESULT**: Aggregates and manages flow execution results
+
+### Pattern & Template System
+
+- **ZCL_LLM_00_PAT**: Powerful template engine for dynamic prompt generation
+- **ZCL_LLM_00_PAT_LIST**: Manages collections of patterns
+- **ZCL_LLM_00_FORMULA**: Combines system and user patterns for complex prompts
+
+### Supporting Infrastructure
+
+- **ZCL_LLM_00_CACHE**: Database-backed persistent cache with automatic encoding
+- **ZCL_LLM_00_CODEC**: Symmetric XOR-based encoding for secure storage
+- **ZCL_LLM_00_PREDICTOKEN**: High-accuracy token prediction without API calls
+- **ZCL_LLM_00_MARKDOWN**: Full-featured Markdown to HTML renderer
+- **ZCL_LLM_00_JSON**: Advanced JSON serialization/deserialization
+- **ZCL_LLM_00_DOTENV**: Environment configuration management
+
+### File System Abstraction
+
+- **ZCL_LLM_00_FILE_LIST_BIN**: Binary file storage in database
+- **ZCL_LLM_00_FILE_LIST_LOCAL**: Local file system access
+- **ZCL_LLM_00_FILE_BIN**: Individual binary file handling
+- **ZCL_LLM_00_FILE_MOCK**: In-memory file mock for testing
+
 ## Documentation
 
-- **[GUIDE.md](GUIDE.md)** - Comprehensive usage guide with examples
+- **[GUIDE.md](GUIDE.md)** - Comprehensive usage guide with examples and component reference
 - **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Technical implementation details of PREDICTOKEN
+- **[Architecture Diagrams](.doc/)** - Detailed component documentation and diagrams
+
+## Package Structure
+
+```
+$ZLLM_00/                       # Main package
+├── Core/                       # Core framework classes
+│   ├── ZCL_LLM                # Main factory
+│   └── ZCL_LLM_00_*          # Core components
+├── Flow/                       # Flow orchestration
+│   ├── *_STEP_*              # Step components
+│   └── *_FLOW_*              # Flow components
+├── Pattern/                    # Template system
+│   ├── *_PAT*                # Pattern engine
+│   └── *_FORMULA*            # Formula system
+├── Infrastructure/             # Supporting services
+│   ├── *_CACHE*              # Cache system
+│   ├── *_FILE_*              # File abstraction
+│   └── *_PREDICTOKEN*        # Token prediction
+└── Demo/                       # Demo programs
+    ├── ZLLM_00_ONBOARD       # Setup wizard
+    ├── ZLLM_00_FLOW_DEMO     # Basic examples
+    ├── ZLLM_00_REPL          # Interactive env
+    └── ZLLM_00_SYNC          # File sync utility
+```
 
 ## License
 

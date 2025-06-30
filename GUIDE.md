@@ -2,13 +2,15 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Quick Start](#quick-start)
-3. [Core Concepts](#core-concepts)
-4. [Template Engine](#template-engine)
-5. [Steps and Flows](#steps-and-flows)
-6. [Advanced Features](#advanced-features)
-7. [Demo Programs](#demo-programs)
-8. [Best Practices](#best-practices)
+2. [Architecture Overview](#architecture-overview)
+3. [Quick Start](#quick-start)
+4. [Core Concepts](#core-concepts)
+5. [Template Engine](#template-engine)
+6. [Steps and Flows](#steps-and-flows)
+7. [Advanced Features](#advanced-features)
+8. [Demo Programs](#demo-programs)
+9. [Component Reference](#component-reference)
+10. [Best Practices](#best-practices)
 
 ## Introduction
 
@@ -20,6 +22,106 @@ The ZLLM Framework is a sophisticated "LangChain-lite" implementation for ABAP/S
 - **Cache System**: Built-in caching for performance
 - **Load Balancing**: Intelligent routing between multiple LLM models
 - **Parallel Processing**: Execute multiple operations concurrently
+
+## Architecture Overview
+
+The ZLLM Framework is built on a modular architecture consisting of several interconnected layers:
+
+### Core Architecture Layers
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Application Layer                         │
+│  (Demo Programs: ONBOARD, FLOW_DEMO, REPL, SYNC)           │
+├─────────────────────────────────────────────────────────────┤
+│                    Flow Orchestration Layer                  │
+│  (Steps, Flows, Formulas, Patterns)                        │
+├─────────────────────────────────────────────────────────────┤
+│                    LLM Integration Layer                     │
+│  (LLM Client, Load Balancer, Response Handler)             │
+├─────────────────────────────────────────────────────────────┤
+│                    Support Services Layer                    │
+│  (Cache, File System, JSON, Token Prediction)              │
+├─────────────────────────────────────────────────────────────┤
+│                    Data Model Layer                          │
+│  (Graph Storage, Binary Storage, Cache Tables)             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Key Components and Their Relationships
+
+#### 1. **Core LLM Client Architecture**
+- **ZCL_LLM**: Main factory class for creating LLM instances
+- **ZCL_LLM_00_LLM_LAZY**: HTTP-backed LLM client with caching and throttling
+- **ZCL_LLM_00_LLM_LAZY_BALANCER**: Load balances across multiple LLM instances
+- **ZCL_LLM_00_LLM_LAZY_COMPOSITE**: Routes to different models based on token count
+- **ZCL_LLM_00_LLM_RESPONSE**: Wraps HTTP responses with retry logic
+
+#### 2. **Flow and Step Components**
+- **ZCL_LLM_00_STEP_LAZY**: Basic unit of LLM interaction
+- **ZCL_LLM_00_STEP_LAZY_PARALLEL**: Parallel execution of steps
+- **ZCL_LLM_00_FLOW_LAZY**: Chains multiple steps sequentially
+- **ZCL_LLM_00_FLOW_RESULT**: Aggregates results from flow execution
+
+#### 3. **Pattern and Template System**
+- **ZCL_LLM_00_PAT**: Pattern/template for prompt generation
+- **ZCL_LLM_00_PAT_LIST**: Manages collections of patterns
+- **ZCL_LLM_00_FORMULA**: Combines system and user patterns
+
+#### 4. **Supporting Infrastructure**
+- **ZCL_LLM_00_CACHE**: Database-backed cache with encoding
+- **ZCL_LLM_00_CODEC**: Symmetric XOR-based encoding for security
+- **ZCL_LLM_00_PREDICTOKEN**: Token count prediction without API calls
+- **ZCL_LLM_00_MARKDOWN**: Markdown to HTML rendering
+
+#### 5. **File System Abstraction**
+- **ZCL_LLM_00_FILE_LIST_BIN**: Binary file storage management
+- **ZCL_LLM_00_FILE_LIST_LOCAL**: Local file system access
+- **ZCL_LLM_00_FILE_BIN**: Individual binary file handling
+- **ZCL_LLM_00_FILE_MOCK**: In-memory file mock for testing
+
+### Data Flow Architecture
+
+```mermaid
+flowchart TD
+    User[User Application] --> Factory[ZCL_LLM Factory]
+    Factory --> LLM[LLM Client]
+    
+    User --> Step[Step Creation]
+    Step --> Pattern[Pattern Engine]
+    Pattern --> Formula[Formula System]
+    
+    Step --> Flow[Flow Orchestration]
+    Flow --> Parallel[Parallel Execution]
+    
+    LLM --> Cache{Cache Check}
+    Cache -->|Hit| CachedResponse[Cached Response]
+    Cache -->|Miss| HTTP[HTTP Client]
+    HTTP --> API[LLM API]
+    API --> Response[Response Handler]
+    Response --> Cache
+    
+    Response --> Result[Flow Result]
+    Result --> User
+```
+
+### Database Schema
+
+The framework uses several custom tables for persistence:
+
+- **ZLLM_00_NODE**: Graph nodes representing code objects (15,604 rows)
+- **ZLLM_00_EDGE**: Relationships between nodes (499 rows)
+- **ZLLM_00_CACHE**: Key-value cache with encoding support (747 rows)
+- **ZLLM_00_BIN**: Binary file storage (250 rows)
+- **ZLLM_00_CCLM**: Code lifecycle management
+- **ZLLM_00_DOC**: Node documentation
+
+### Security Architecture
+
+- **Encoded Storage**: All files use symmetric XOR encoding
+- **Configurable Seeds**: Custom encryption seeds via ZLLM_CODEC parameter
+- **User Isolation**: Each user's data encoded separately
+- **API Key Protection**: Credentials never stored in plain text
 
 ## Quick Start
 
@@ -560,7 +662,137 @@ Advanced interactive environment:
 
 ### 4. ZLLM_00_SYNC - File Synchronization
 
-Virtual filesystem sync with local folders (implementation details vary).
+Virtual filesystem sync with local folders. This utility enables:
+- Synchronization between local folders and SAP MIME repository (SMW0)
+- Binary file management in ZLLM_00_BIN table
+- Support for various file masks and filtering
+- Bidirectional sync (upload/download)
+
+## Component Reference
+
+### Core Classes
+
+#### ZCL_LLM - Main Factory
+```abap
+" Create LLM instances with various configurations
+DATA(lo_llm) = zcl_llm=>new( 'DEFAULT.ENV' ).
+" Methods: get_llm( ), get_flow( ), get_step( ), get_predictoken( )
+```
+
+#### ZCL_LLM_00_LLM_LAZY - LLM Client
+- HTTP-based LLM client with built-in features
+- Supports multiple providers (OpenAI, Azure, Ollama)
+- Automatic retry on 429 (rate limit)
+- Configurable throttling
+- Debug/trace capabilities
+
+#### ZCL_LLM_00_STEP_LAZY - Step Execution
+- Basic unit of LLM interaction
+- Supports lazy execution model
+- JSON detection and formatting
+- Result collection and propagation
+
+#### ZCL_LLM_00_FLOW_LAZY - Flow Orchestration
+- Chains multiple steps sequentially
+- Automatic result propagation between steps
+- Composable (flows can be steps)
+- Support for complex workflows
+
+#### ZCL_LLM_00_PAT - Pattern Engine
+- Template/pattern for dynamic prompts
+- Deep structure navigation
+- Table iteration support
+- Configurable delimiters
+
+#### ZCL_LLM_00_CACHE - Caching System
+- Database-backed persistent cache
+- Automatic encoding/decoding
+- Seed-based isolation
+- Access tracking and aging
+
+#### ZCL_LLM_00_PREDICTOKEN - Token Prediction
+- 99.7% accuracy (R² > 0.997)
+- Sub-millisecond performance
+- Support for GPT-4 and Mistral models
+- No API calls required
+
+### Interface Reference
+
+#### ZIF_LLM_00_LLM_LAZY
+```abap
+INTERFACE zif_llm_00_llm_lazy.
+  METHODS:
+    q IMPORTING io_ TYPE REF TO zif_llm_00_json
+      RETURNING VALUE(ro_) TYPE REF TO zif_llm_00_llm_response,
+    a IMPORTING io_ TYPE REF TO zif_llm_00_llm_response
+      RETURNING VALUE(rv_) TYPE string,
+    get_config RETURNING VALUE(rs_) TYPE ts_config.
+ENDINTERFACE.
+```
+
+#### ZIF_LLM_00_STEP_LAZY
+```abap
+INTERFACE zif_llm_00_step_lazy.
+  METHODS:
+    start IMPORTING ir_ TYPE REF TO data OPTIONAL
+          RETURNING VALUE(ro_) TYPE REF TO zif_llm_00_step_result,
+    exec IMPORTING ir_ TYPE REF TO data OPTIONAL
+         RETURNING VALUE(rr_) TYPE REF TO data,
+    collect IMPORTING io_ TYPE REF TO zif_llm_00_step_result
+            RETURNING VALUE(rr_) TYPE REF TO data.
+ENDINTERFACE.
+```
+
+#### ZIF_LLM_00_PAT
+```abap
+INTERFACE zif_llm_00_pat.
+  METHODS:
+    apply IMPORTING ir_ TYPE REF TO data
+          RETURNING VALUE(rv_) TYPE string,
+    get_name RETURNING VALUE(rv_) TYPE string.
+ENDINTERFACE.
+```
+
+### Utility Classes
+
+#### ZCL_LLM_00_JSON - JSON Handling
+- Serialization/deserialization
+- Type detection
+- Nested structure support
+
+#### ZCL_LLM_00_MARKDOWN - Markdown Rendering
+- Full CommonMark support
+- Safe mode for untrusted content
+- HTML output generation
+
+#### ZCL_LLM_00_SPL - GUI Splitter Management
+- Dynamic container splitting
+- Complex layout support
+- Symbolic split notation
+
+#### ZCL_LLM_00_DOTENV - Environment Configuration
+- .env file parsing
+- Configuration management
+- Multi-environment support
+
+### Data Types
+
+#### Common Types
+```abap
+TYPES: BEGIN OF ts_env,
+         api_key TYPE string,
+         api_url TYPE string,
+         api_model TYPE string,
+         api_max_token TYPE i,
+         api_token_split_limit TYPE i,
+       END OF ts_env.
+
+TYPES: BEGIN OF ts_llm_config,
+         model TYPE string,
+         max_token TYPE i,
+         split_limit TYPE i,
+       END OF ts_llm_config.
+```
 
 ## Best Practices
 
