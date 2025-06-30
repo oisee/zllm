@@ -82,7 +82,7 @@ CLASS ZCL_LLM_00_FORMULA_LIST IMPLEMENTATION.
   METHOD new_from_fl.
     DATA(lv_tail_len) = 6. "strlen('sys.md').
     DATA lt_formula TYPE tt_formula.
-    DATA(lt_name) = io_fl->filter( '*.sys.md|*.usr.md|sys.md|usr.md').
+    DATA(lt_name) = io_fl->filter( '*.sys.md|*.usr.md|sys.md|usr.md' ).
     LOOP AT lt_name REFERENCE INTO DATA(lr_name).
       IF lr_name->name CP '*sys.md' AND
          lr_name->name CP '*usr.md'.
