@@ -1,8 +1,8 @@
-INTERFACE zif_logger
+INTERFACE zif_llm_logger
   PUBLIC .
 
-  types: ts_msg TYPE zif_log=>ts_msg.
-  types: tt_msg TYPE zif_log=>tt_msg.
+  types: ts_msg TYPE zif_llm_log=>ts_msg.
+  types: tt_msg TYPE zif_llm_log=>tt_msg.
 
   DATA gv_msg TYPE string .
   DATA mt_msg TYPE tt_msg .
@@ -19,7 +19,7 @@ INTERFACE zif_logger
       !iv_importance  TYPE balprobcl OPTIONAL
         PREFERRED PARAMETER io_
     RETURNING
-      VALUE(ro_)      TYPE REF TO zif_logger .
+      VALUE(ro_)      TYPE REF TO zif_llm_logger .
   METHODS a
     IMPORTING
       !io_       TYPE any OPTIONAL
@@ -29,7 +29,7 @@ INTERFACE zif_logger
       !iv_importance  TYPE balprobcl OPTIONAL
         PREFERRED PARAMETER io_
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_logger .
+      VALUE(ro_) TYPE REF TO zif_llm_logger .
   METHODS e
     IMPORTING
       !io_       TYPE any OPTIONAL
@@ -39,7 +39,7 @@ INTERFACE zif_logger
       !iv_importance  TYPE balprobcl OPTIONAL
         PREFERRED PARAMETER io_
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_logger .
+      VALUE(ro_) TYPE REF TO zif_llm_logger .
   METHODS w
     IMPORTING
       !io_       TYPE any OPTIONAL
@@ -49,7 +49,7 @@ INTERFACE zif_logger
       !iv_importance  TYPE balprobcl OPTIONAL
         PREFERRED PARAMETER io_
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_logger .
+      VALUE(ro_) TYPE REF TO zif_llm_logger .
   METHODS i
     IMPORTING
       !io_       TYPE any OPTIONAL
@@ -59,7 +59,7 @@ INTERFACE zif_logger
       !iv_importance  TYPE balprobcl OPTIONAL
         PREFERRED PARAMETER io_
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_logger .
+      VALUE(ro_) TYPE REF TO zif_llm_logger .
   METHODS s
     IMPORTING
       !io_       TYPE any OPTIONAL
@@ -69,5 +69,5 @@ INTERFACE zif_logger
       !iv_importance  TYPE balprobcl OPTIONAL
         PREFERRED PARAMETER io_
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_logger .
+      VALUE(ro_) TYPE REF TO zif_llm_logger .
 ENDINTERFACE.

@@ -1,9 +1,9 @@
-interface ZIF_LOG_ANALYSER
+interface ZIF_LLM_LOG_ANALYSER
   public .
 
 
-  types TS_MSG type zif_log=>TS_MSG .
-  types TT_MSG type zif_log=>TT_MSG .
+  types TS_MSG type zif_llm_log=>TS_MSG .
+  types TT_MSG type zif_llm_log=>TT_MSG .
 
   methods GET_WORST_MESSAGE
     returning

@@ -1,9 +1,9 @@
-interface ZIF_LOG_CONVERTER
+interface ZIF_LLM_LOG_CONVERTER
   public .
 
 
-  types TS_MSG type zif_log=>TS_MSG .
-  types TT_MSG type zif_log=>TT_MSG .
+  types TS_MSG type zif_llm_log=>TS_MSG .
+  types TT_MSG type zif_llm_log=>TT_MSG .
 
   methods GET_FLATTEN_TABLE
     returning

@@ -1,25 +1,25 @@
-class ZCL_LOG_CONVERTER definition
+class ZCL_LLM_LOG_CONVERTER definition
   public
   create protected .
 
 public section.
 
-  interfaces ZIF_LOG_CONVERTER .
+  interfaces zif_llm_log_converter .
 
   aliases GET_BAPIRET2_TABLE
-    for ZIF_LOG_CONVERTER~GET_BAPIRET2_TABLE .
+    for zif_llm_log_converter~GET_BAPIRET2_TABLE .
   aliases GET_FLATTEN_TABLE
-    for ZIF_LOG_CONVERTER~GET_FLATTEN_TABLE .
+    for zif_llm_log_converter~GET_FLATTEN_TABLE .
   aliases GET_IDOC_STATUS_TABLE
-    for ZIF_LOG_CONVERTER~GET_IDOC_STATUS_TABLE .
+    for zif_llm_log_converter~GET_IDOC_STATUS_TABLE .
 
 *  aliases GET_MMPUR_T_MESSAGES_EXT
 *    for ZIF_LOG_CONVERTER~GET_MMPUR_T_MESSAGES_EXT .
   class-methods NEW
     importing
-      !IO_LOG type ref to zif_log
+      !IO_LOG type ref to zif_llm_log
     returning
-      value(RO_) type ref to ZCL_LOG_CONVERTER .
+      value(RO_) type ref to ZCL_LLM_LOG_CONVERTER .
   class-methods SY_TO_BAPIRET2_T
     importing
       !IS_ type SYST default SY
@@ -56,15 +56,15 @@ public section.
     returning
       value(RT_) type FKK_TAB_CORR_FIMSG .
   PROTECTED SECTION.
-    DATA: mo_log TYPE REF TO zif_log.
-    METHODS constructor IMPORTING io_log TYPE REF TO zif_log.
+    DATA: mo_log TYPE REF TO zif_llm_log.
+    METHODS constructor IMPORTING io_log TYPE REF TO zif_llm_log.
   PRIVATE SECTION.
 
 ENDCLASS.
 
 
 
-CLASS ZCL_LOG_CONVERTER IMPLEMENTATION.
+CLASS ZCL_LLM_LOG_CONVERTER IMPLEMENTATION.
 
 
   METHOD bapiret2_to_fimsg.
@@ -138,17 +138,17 @@ CLASS ZCL_LOG_CONVERTER IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log_converter~get_bapiret2_table.
+  METHOD zif_llm_log_converter~get_bapiret2_table.
     rt_ = mo_log->get_bapiret2_table(  ).
   ENDMETHOD.
 
 
-  METHOD zif_log_converter~get_flatten_table.
+  METHOD zif_llm_log_converter~get_flatten_table.
     rt_ = mo_log->get_flatten_table(  ).
   ENDMETHOD.
 
 
-  METHOD zif_log_converter~get_idoc_status_table.
+  METHOD zif_llm_log_converter~get_idoc_status_table.
     DATA(lt_bapiret) = mo_log->get_bapiret2_table( ).
     LOOP AT lt_bapiret ASSIGNING FIELD-SYMBOL(<fs_bapiret>).
       APPEND INITIAL LINE TO rt_ ASSIGNING FIELD-SYMBOL(<fs_>).
@@ -168,7 +168,7 @@ CLASS ZCL_LOG_CONVERTER IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log_converter~get_iwbep_msg_container.
+  METHOD zif_llm_log_converter~get_iwbep_msg_container.
 
     DATA: lo_msg_container  TYPE REF TO /iwbep/if_message_container.
     lo_msg_container = /iwbep/cl_mgw_msg_container=>get_mgw_msg_container( ).

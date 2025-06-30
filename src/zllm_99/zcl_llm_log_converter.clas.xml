@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_LOG_CONVERTER</CLSNAME>
+    <CLSNAME>ZCL_LLM_LOG_CONVERTER</CLSNAME>
     <LANGU>E</LANGU>
     <DESCRIPT>ZIF_LOG converter to other formats</DESCRIPT>
     <STATE>1</STATE>

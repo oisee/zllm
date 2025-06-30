@@ -89,7 +89,7 @@ CLASS ZCL_LLM_00_EMBED_OUT IMPLEMENTATION.
 
   METHOD new_from_json.
     DATA: ls_ TYPE ts_.
-    zcl_oai_01_json=>from_json( EXPORTING json = iv_
+    zcl_llm_00_json=>from_json( EXPORTING json = iv_
                                 CHANGING  data = ls_
     ).
     ro_ = NEW #( ls_ ).

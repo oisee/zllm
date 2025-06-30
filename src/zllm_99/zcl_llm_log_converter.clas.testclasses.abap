@@ -1,5 +1,5 @@
 CLASS lcl_ DEFINITION DEFERRED.
-CLASS zcl_log_converter DEFINITION LOCAL FRIENDS lcl_.
+CLASS zcl_llm_log_converter DEFINITION LOCAL FRIENDS lcl_.
 
 CLASS lcl_ DEFINITION FOR TESTING
   DURATION SHORT
@@ -7,7 +7,7 @@ CLASS lcl_ DEFINITION FOR TESTING
 .
   PRIVATE SECTION.
     DATA:
-      cut TYPE REF TO zif_log_converter.  "class under test
+      cut TYPE REF TO zif_llm_log_converter.  "class under test
 
     METHODS: setup.
     METHODS: get_bapiret2_table FOR TESTING.
@@ -46,7 +46,7 @@ CLASS lcl_ IMPLEMENTATION.
 
   METHOD get_flatten_table.
 
-    DATA rt_ TYPE zif_log_converter=>tt_msg.
+    DATA rt_ TYPE zif_llm_log_converter=>tt_msg.
 
     rt_ = cut->get_flatten_table(  ).
 
@@ -64,7 +64,7 @@ CLASS lcl_ IMPLEMENTATION.
     DATA is_ TYPE bapiret2.
     DATA rv_ TYPE string.
 
-    rv_ = zcl_log_converter=>bapiret2_to_string( is_ ).
+    rv_ = zcl_llm_log_converter=>bapiret2_to_string( is_ ).
 
     cl_abap_unit_assert=>assert_equals(
       act   = rv_
@@ -77,10 +77,10 @@ CLASS lcl_ IMPLEMENTATION.
 
   METHOD new.
 
-    DATA io_log TYPE REF TO zif_log.
-    DATA ro_ TYPE REF TO zcl_log_converter.
+    DATA io_log TYPE REF TO zif_llm_log.
+    DATA ro_ TYPE REF TO zcl_llm_log_converter.
 
-    ro_ = zcl_log_converter=>new( io_log ).
+    ro_ = zcl_llm_log_converter=>new( io_log ).
 
     cl_abap_unit_assert=>assert_equals(
       act   = ro_
@@ -96,7 +96,7 @@ CLASS lcl_ IMPLEMENTATION.
     DATA is_ TYPE syst.
     DATA rs_ TYPE bapiret2.
 
-    rs_ = zcl_log_converter=>sy_to_bapiret2( is_ ).
+    rs_ = zcl_llm_log_converter=>sy_to_bapiret2( is_ ).
 
     cl_abap_unit_assert=>assert_equals(
       act   = rs_

@@ -10,33 +10,33 @@ CLASS zcl_blog DEFINITION
   PUBLIC SECTION.
     TYPE-POOLS abap .
 
-    INTERFACES zif_log .
-    INTERFACES zif_logger .
+    INTERFACES zif_llm_log .
+    INTERFACES zif_llm_logger .
 
     ALIASES a
-      FOR zif_logger~a .
+      FOR zif_llm_logger~a .
     ALIASES add
-      FOR zif_logger~add .
+      FOR zif_llm_logger~add .
     ALIASES display
-      FOR zif_logger~display .
+      FOR zif_llm_logger~display .
     ALIASES e
-      FOR zif_logger~e .
+      FOR zif_llm_logger~e .
     ALIASES get_analyser
-      FOR zif_log~get_analyser .
+      FOR zif_llm_log~get_analyser .
     ALIASES get_bapiret2_table
-      FOR zif_log~get_bapiret2_table .
+      FOR zif_llm_log~get_bapiret2_table .
     ALIASES get_converter
-      FOR zif_log~get_converter .
+      FOR zif_llm_log~get_converter .
     ALIASES get_flatten_table
-      FOR zif_log~get_flatten_table .
+      FOR zif_llm_log~get_flatten_table .
     ALIASES get_message_table
-      FOR zif_log~get_message_table .
+      FOR zif_llm_log~get_message_table .
     ALIASES i
-      FOR zif_logger~i .
+      FOR zif_llm_logger~i .
     ALIASES s
-      FOR zif_logger~s .
+      FOR zif_llm_logger~s .
     ALIASES w
-      FOR zif_logger~w .
+      FOR zif_llm_logger~w .
 
 *"* public components of class ZCL_LOGGER
 *"* do not include other source files here!!!
@@ -90,11 +90,11 @@ CLASS zcl_blog DEFINITION
   PRIVATE SECTION.
 
     ALIASES gv_msg
-      FOR zif_log~gv_msg .
+      FOR zif_llm_log~gv_msg .
     ALIASES ts_msg
-      FOR zif_log~ts_msg .
+      FOR zif_llm_log~ts_msg .
     ALIASES tt_msg
-      FOR zif_log~tt_msg .
+      FOR zif_llm_log~tt_msg .
 
     TYPES:
 * Local type for hrpad_message as it is not available in an ABAP Development System
@@ -382,8 +382,8 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~a.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~a.
+    ro_ = zif_llm_logger~add(
       io_            = io_
       iv_type        = iv_type
       is_context     = is_context
@@ -392,7 +392,7 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~add.
+  METHOD zif_llm_logger~add.
     DATA: lv_type LIKE iv_type.
     lv_type = iv_type.
 
@@ -410,7 +410,7 @@ CLASS ZCL_BLOG IMPLEMENTATION.
 
     FIELD-SYMBOLS: <table_of_messages> TYPE ANY TABLE,
                    <message_line>      TYPE any,
-                   <fs_msg>            TYPE zif_log=>ts_msg,
+                   <fs_msg>            TYPE zif_llm_log=>ts_msg,
                    <fs_syst>           TYPE syst,
                    <bapi_msg1>         TYPE bapiret1,
                    <bapi_msg2>         TYPE bapiret2,
@@ -473,22 +473,22 @@ CLASS ZCL_BLOG IMPLEMENTATION.
         free_text_msg = <fs_msg>-free_text_msg.
         lv_type       = <fs_msg>-msgty.
       ELSEIF <fs_msg>-exception IS NOT INITIAL.
-        zif_logger~add( <fs_msg>-exception ).
+        zif_llm_logger~add( <fs_msg>-exception ).
       ELSE.
         MOVE-CORRESPONDING <fs_msg> TO detailed_msg.
       ENDIF.
     ELSEIF lo_msg_type->type_kind = cl_abap_typedescr=>typekind_oref.
 
-      IF io_ IS INSTANCE OF zif_log.
-        DATA: li_log TYPE REF TO zif_log.
+      IF io_ IS INSTANCE OF zif_llm_log.
+        DATA: li_log TYPE REF TO zif_llm_log.
         li_log ?= io_.
-        zif_logger~add( li_log->get_flatten_table( ) ).
+        zif_llm_logger~add( li_log->get_flatten_table( ) ).
 
       ELSEIF io_ IS INSTANCE OF if_t100_message.
         DATA: li_t100_message TYPE REF TO if_t100_message.
         li_t100_message ?= io_.
 
-        DATA(ls_msg) = VALUE zif_log=>ts_msg(
+        DATA(ls_msg) = VALUE zif_llm_log=>ts_msg(
             msgid = li_t100_message->t100key-msgid
             msgno = li_t100_message->t100key-msgno
             msgty = iv_type
@@ -497,12 +497,12 @@ CLASS ZCL_BLOG IMPLEMENTATION.
             msgv3 = li_t100_message->t100key-attr3
             msgv4 = li_t100_message->t100key-attr4
         ).
-        zif_logger~add( ls_msg ).
+        zif_llm_logger~add( ls_msg ).
 
       ELSEIF io_ IS INSTANCE OF if_message.
         DATA: li_message TYPE REF TO if_message.
         li_message ?= io_.
-        zif_logger~add( li_message->get_text( ) ).
+        zif_llm_logger~add( li_message->get_text( ) ).
 
       ELSEIF io_ IS INSTANCE OF cx_root.
         exception_data-exception = io_.
@@ -515,13 +515,13 @@ CLASS ZCL_BLOG IMPLEMENTATION.
 
       ELSE.
         MESSAGE e003(zcx_s) WITH lo_msg_type->absolute_name INTO gv_msg.
-        zif_logger~add( sy ).
+        zif_llm_logger~add( sy ).
       ENDIF.
 
     ELSEIF lo_msg_type->type_kind = cl_abap_typedescr=>typekind_table.
       ASSIGN io_ TO <table_of_messages>.
       LOOP AT <table_of_messages> ASSIGNING <message_line>.
-        zif_logger~add( <message_line> ).
+        zif_llm_logger~add( <message_line> ).
       ENDLOOP.
       RETURN.
     ELSEIF lo_msg_type->absolute_name = '\TYPE=BAPIRET1' OR
@@ -593,7 +593,7 @@ CLASS ZCL_BLOG IMPLEMENTATION.
       free_text_msg = io_.
     ELSE.
       MESSAGE e003(zcx_) WITH lo_msg_type->absolute_name INTO gv_msg.
-      zif_logger~add( sy ).
+      zif_llm_logger~add( sy ).
     ENDIF.
 
     IF iv_callback_fm IS NOT INITIAL.
@@ -648,7 +648,7 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~display.
+  METHOD zif_llm_logger~display.
     CASE iv_mode.
       WHEN 'fullscreen'.
         fullscreen(  ).
@@ -660,8 +660,8 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~e.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~e.
+    ro_ = zif_llm_logger~add(
       io_            = io_
       iv_type        = iv_type
       is_context     = is_context
@@ -670,8 +670,8 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~i.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~i.
+    ro_ = zif_llm_logger~add(
       io_            = io_
       iv_type        = iv_type
       is_context     = is_context
@@ -680,8 +680,8 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~s.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~s.
+    ro_ = zif_llm_logger~add(
       io_            = io_
       iv_type        = iv_type
       is_context     = is_context
@@ -690,8 +690,8 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~w.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~w.
+    ro_ = zif_llm_logger~add(
       io_            = io_
       iv_type        = iv_type
       is_context     = is_context
@@ -700,12 +700,12 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log~get_analyser.
-    ro_ = zcl_log_analyser=>new( me ).
+  METHOD zif_llm_log~get_analyser.
+    ro_ = zcl_llm_log_analyser=>new( me ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_bapiret2_table.
+  METHOD zif_llm_log~get_bapiret2_table.
     DATA: log_handle         TYPE bal_t_logh,
           lt_message_handles TYPE bal_t_msgh,
           ls_message         TYPE bal_s_msg,
@@ -764,19 +764,19 @@ CLASS ZCL_BLOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log~get_converter.
-    ro_ = zcl_log_converter=>new( me ).
+  METHOD zif_llm_log~get_converter.
+    ro_ = zcl_llm_log_converter=>new( me ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_flatten_table.
-    rt_ = zif_log~get_message_table(  ).
+  METHOD zif_llm_log~get_flatten_table.
+    rt_ = zif_llm_log~get_message_table(  ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_message_table.
+  METHOD zif_llm_log~get_message_table.
     DATA: lt_msg TYPE tt_msg.
-    DATA(lt_bapiret) = zif_log~get_bapiret2_table(  ).
+    DATA(lt_bapiret) = zif_llm_log~get_bapiret2_table(  ).
     LOOP AT lt_bapiret ASSIGNING FIELD-SYMBOL(<fs_bapiret>).
       APPEND INITIAL LINE TO rt_ ASSIGNING FIELD-SYMBOL(<fs_>).
       <fs_>-msgty = <fs_bapiret>-type.

@@ -161,8 +161,8 @@ CLASS ltc_blog IMPLEMENTATION.
         cut->add( lx_ ).
     ENDTRY.
     "then
-    DATA: lt_msg TYPE zif_log=>tt_msg.
-    DATA: ls_msg TYPE zif_log=>ts_msg.
+    DATA: lt_msg TYPE zif_llm_log=>tt_msg.
+    DATA: ls_msg TYPE zif_llm_log=>ts_msg.
     lt_msg = cut->get_message_table(  ).
     READ TABLE lt_msg INTO ls_msg INDEX 1.
     cl_abap_unit_assert=>assert_equals( act = ls_msg-msgid

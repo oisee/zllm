@@ -1,4 +1,4 @@
-INTERFACE zif_log
+INTERFACE zif_llm_log
   PUBLIC .
 
 
@@ -28,10 +28,10 @@ INTERFACE zif_log
 
   METHODS get_converter
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_log_converter.
+      VALUE(ro_) TYPE REF TO zif_llm_log_converter.
 
   METHODS get_analyser
     RETURNING
-      VALUE(ro_) TYPE REF TO zif_log_analyser.
+      VALUE(ro_) TYPE REF TO zif_llm_log_analyser.
 
 ENDINTERFACE.

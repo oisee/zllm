@@ -7,21 +7,21 @@ CLASS zcx_n DEFINITION
     TYPE-POOLS abap .
 
     INTERFACES if_t100_message .
-    INTERFACES zif_log .
-    INTERFACES zif_logger .
+    INTERFACES zif_llm_log .
+    INTERFACES zif_llm_logger .
 
-    ALIASES add FOR zif_logger~add.
-    ALIASES a FOR zif_logger~a.
-    ALIASES e FOR zif_logger~e.
-    ALIASES w FOR zif_logger~w.
-    ALIASES i FOR zif_logger~i.
-    ALIASES s FOR zif_logger~s.
-    ALIASES display FOR zif_logger~display.
-    ALIASES get_bapiret2_table FOR zif_log~get_bapiret2_table .
-    ALIASES get_flatten_table  FOR zif_log~get_flatten_table .
-    ALIASES get_message_table  FOR zif_log~get_message_table .
-    ALIASES get_converter      FOR zif_log~get_converter .
-    ALIASES get_analyser       FOR zif_log~get_analyser .
+    ALIASES add FOR zif_llm_logger~add.
+    ALIASES a FOR zif_llm_logger~a.
+    ALIASES e FOR zif_llm_logger~e.
+    ALIASES w FOR zif_llm_logger~w.
+    ALIASES i FOR zif_llm_logger~i.
+    ALIASES s FOR zif_llm_logger~s.
+    ALIASES display FOR zif_llm_logger~display.
+    ALIASES get_bapiret2_table FOR zif_llm_log~get_bapiret2_table .
+    ALIASES get_flatten_table  FOR zif_llm_log~get_flatten_table .
+    ALIASES get_message_table  FOR zif_llm_log~get_message_table .
+    ALIASES get_converter      FOR zif_llm_log~get_converter .
+    ALIASES get_analyser       FOR zif_llm_log~get_analyser .
 
     CLASS-METHODS new
       IMPORTING
@@ -65,8 +65,8 @@ CLASS zcx_n DEFINITION
         !gv_msg   TYPE string OPTIONAL .
   PRIVATE SECTION.
     DATA minilog TYPE REF TO zcl_minilog.
-    DATA logger_delegate TYPE REF TO zif_logger.
-    DATA log_delegate TYPE REF TO zif_log.
+    DATA logger_delegate TYPE REF TO zif_llm_logger.
+    DATA log_delegate TYPE REF TO zif_llm_log.
 ENDCLASS.
 
 
@@ -107,7 +107,7 @@ CLASS ZCX_N IMPLEMENTATION.
 
   METHOD raise.
     ro_ = new(  ).
-    ro_->zif_logger~add( io_     = io_
+    ro_->zif_llm_logger~add( io_     = io_
                          iv_type = iv_type  ).
 
     RAISE EXCEPTION ro_.
@@ -121,69 +121,69 @@ CLASS ZCX_N IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~a.
+  METHOD zif_llm_logger~a.
     me->logger_delegate->a( io_ ).
     ro_ = me.
   ENDMETHOD.
 
 
-  METHOD zif_logger~add.
+  METHOD zif_llm_logger~add.
     me->logger_delegate->add( io_     = io_
                               iv_type = iv_type ).
     ro_ = me.
   ENDMETHOD.
 
 
-  METHOD zif_logger~display.
+  METHOD zif_llm_logger~display.
     me->logger_delegate->display(  ).
   ENDMETHOD.
 
 
-  METHOD zif_logger~e.
+  METHOD zif_llm_logger~e.
     me->logger_delegate->e( io_ ).
     ro_ = me.
   ENDMETHOD.
 
 
-  METHOD zif_logger~i.
+  METHOD zif_llm_logger~i.
     me->logger_delegate->i( io_ ).
     ro_ = me.
   ENDMETHOD.
 
 
-  METHOD zif_logger~s.
+  METHOD zif_llm_logger~s.
     me->logger_delegate->s( io_ ).
     ro_ = me.
   ENDMETHOD.
 
 
-  METHOD zif_logger~w.
+  METHOD zif_llm_logger~w.
     me->logger_delegate->w( io_ ).
     ro_ = me.
   ENDMETHOD.
 
 
-  METHOD zif_log~get_analyser.
-    ro_ = zcl_log_analyser=>new( me ).
+  METHOD zif_llm_log~get_analyser.
+    ro_ = zcl_llm_log_analyser=>new( me ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_bapiret2_table.
+  METHOD zif_llm_log~get_bapiret2_table.
     rt_ = me->log_delegate->get_bapiret2_table( ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_converter.
-    ro_ = zcl_log_converter=>new( me ).
+  METHOD zif_llm_log~get_converter.
+    ro_ = zcl_llm_log_converter=>new( me ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_flatten_table.
+  METHOD zif_llm_log~get_flatten_table.
     rt_ = me->log_delegate->get_flatten_table( ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_message_table.
+  METHOD zif_llm_log~get_message_table.
     rt_ = me->log_delegate->get_message_table( ).
   ENDMETHOD.
 ENDCLASS.

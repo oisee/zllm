@@ -47,7 +47,7 @@
 *
 *ENDCLASS.
 CLASS lcl_uat DEFINITION DEFERRED.
-CLASS zcl_log_analyser DEFINITION LOCAL FRIENDS lcl_uat.
+CLASS zcl_llm_log_analyser DEFINITION LOCAL FRIENDS lcl_uat.
 
 CLASS lcl_uat DEFINITION FOR TESTING
   DURATION SHORT
@@ -55,7 +55,7 @@ CLASS lcl_uat DEFINITION FOR TESTING
 .
   PRIVATE SECTION.
     DATA:
-      f_cut TYPE REF TO zif_log_analyser.  "class under test
+      f_cut TYPE REF TO zif_llm_log_analyser.  "class under test
     METHODs: setup.
     METHODS: get_worst_bapiret2 FOR TESTING.
     METHODS: get_worst_message FOR TESTING.
@@ -97,7 +97,7 @@ CLASS lcl_uat IMPLEMENTATION.
 
   METHOD get_worst_message.
 
-    DATA rs_ TYPE zif_log_analyser=>ts_msg.
+    DATA rs_ TYPE zif_llm_log_analyser=>ts_msg.
 
     rs_ = f_cut->get_worst_message(  ).
 
@@ -220,10 +220,10 @@ CLASS lcl_uat IMPLEMENTATION.
 
   METHOD new.
 
-    DATA io_log TYPE REF TO zif_log.
-    DATA ro_ TYPE REF TO zcl_log_analyser.
+    DATA io_log TYPE REF TO zif_llm_log.
+    DATA ro_ TYPE REF TO zcl_llm_log_analyser.
 
-    ro_ = zcl_log_analyser=>new( io_log ).
+    ro_ = zcl_llm_log_analyser=>new( io_log ).
 
     cl_abap_unit_assert=>assert_equals(
       act   = ro_

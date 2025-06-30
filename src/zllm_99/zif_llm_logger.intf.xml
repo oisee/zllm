@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOINTERF>
-    <CLSNAME>ZIF_LOG_ANALYSER</CLSNAME>
+    <CLSNAME>ZIF_LLM_LOGGER</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Log (get TT_MSG/BAPIRET2_T) compatible with Logger</DESCRIPT>
+    <DESCRIPT>Logger generic interface (able to ADD messages as A/E/W/I/S)</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <UNICODE>X</UNICODE>

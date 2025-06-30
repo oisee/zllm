@@ -6,22 +6,22 @@ CLASS zcl_minilog DEFINITION
 
     INTERFACES if_message .
     INTERFACES if_t100_message .
-    INTERFACES zif_log .
-    INTERFACES zif_logger .
+    INTERFACES zif_llm_log .
+    INTERFACES zif_llm_logger .
     "   INTERFACES zif_tlog_id .
 
-    ALIASES add FOR zif_logger~add.
-    ALIASES a FOR zif_logger~a.
-    ALIASES e FOR zif_logger~e.
-    ALIASES w FOR zif_logger~w.
-    ALIASES i FOR zif_logger~i.
-    ALIASES s FOR zif_logger~s.
-    ALIASES display FOR zif_logger~display.
-    ALIASES get_bapiret2_table FOR zif_log~get_bapiret2_table .
-    ALIASES get_flatten_table  FOR zif_log~get_flatten_table .
-    ALIASES get_message_table  FOR zif_log~get_message_table .
-    ALIASES get_converter      FOR zif_log~get_converter .
-    ALIASES get_analyser       FOR zif_log~get_analyser .
+    ALIASES add FOR zif_llm_logger~add.
+    ALIASES a FOR zif_llm_logger~a.
+    ALIASES e FOR zif_llm_logger~e.
+    ALIASES w FOR zif_llm_logger~w.
+    ALIASES i FOR zif_llm_logger~i.
+    ALIASES s FOR zif_llm_logger~s.
+    ALIASES display FOR zif_llm_logger~display.
+    ALIASES get_bapiret2_table FOR zif_llm_log~get_bapiret2_table .
+    ALIASES get_flatten_table  FOR zif_llm_log~get_flatten_table .
+    ALIASES get_message_table  FOR zif_llm_log~get_message_table .
+    ALIASES get_converter      FOR zif_llm_log~get_converter .
+    ALIASES get_analyser       FOR zif_llm_log~get_analyser .
 *   ALIASES get_log_id         FOR zif_tlog_id~get_log_id.
 
     CLASS-METHODS new
@@ -32,13 +32,13 @@ CLASS zcl_minilog DEFINITION
   PRIVATE SECTION.
 
     ALIASES gv_msg
-      FOR zif_log~gv_msg .
+      FOR zif_llm_log~gv_msg .
     ALIASES mt_msg
-      FOR zif_log~mt_msg .
+      FOR zif_llm_log~mt_msg .
     ALIASES ts_msg
-      FOR zif_log~ts_msg .
+      FOR zif_llm_log~ts_msg .
     ALIASES tt_msg
-      FOR zif_log~tt_msg .
+      FOR zif_llm_log~tt_msg .
 
 *    METHODS add_bapiconf_like_structure
 *      IMPORTING
@@ -114,11 +114,11 @@ CLASS zcl_minilog DEFINITION
           PREFERRED PARAMETER io_ .
     METHODS add_ts_msg
       IMPORTING
-        !io_ TYPE zif_log=>ts_msg OPTIONAL
+        !io_ TYPE zif_llm_log=>ts_msg OPTIONAL
           PREFERRED PARAMETER io_ .
     METHODS add_tt_msg
       IMPORTING
-        !io_ TYPE zif_log=>tt_msg OPTIONAL
+        !io_ TYPE zif_llm_log=>tt_msg OPTIONAL
           PREFERRED PARAMETER io_ .
     METHODS add_csequence
       IMPORTING
@@ -312,7 +312,7 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   METHOD if_message~get_text.
     DATA: lv_ TYPE string.
     DATA: lr_ TYPE REF TO ts_msg.
-    DATA(lt_msg) = zif_log~get_flatten_table(  ).
+    DATA(lt_msg) = zif_llm_log~get_flatten_table(  ).
     LOOP AT lt_msg REFERENCE INTO lr_.
       CLEAR: lv_.
       IF lr_->free_text_msg IS NOT INITIAL.
@@ -350,8 +350,8 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~a.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~a.
+    ro_ = zif_llm_logger~add(
             io_            = io_
             iv_type        = iv_type
             is_context     = is_context
@@ -360,7 +360,7 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~add.
+  METHOD zif_llm_logger~add.
 
     DATA: lo_msg_type TYPE REF TO cl_abap_typedescr.
     FIELD-SYMBOLS: <fs_any_t> TYPE ANY TABLE,
@@ -387,18 +387,18 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
       add_tt_msg( io_ ).
     ELSEIF lo_msg_type->type_kind = cl_abap_typedescr=>typekind_oref.
 
-      IF io_ IS INSTANCE OF zif_log.
-        DATA: li_log TYPE REF TO zif_log.
+      IF io_ IS INSTANCE OF zif_llm_log.
+        DATA: li_log TYPE REF TO zif_llm_log.
         li_log ?= io_.
         "zif_logger~add( li_log->get_flatten_table( ) ).
 
-        zif_logger~add( li_log->get_message_table( ) ).
+        zif_llm_logger~add( li_log->get_message_table( ) ).
 
       ELSEIF io_ IS INSTANCE OF if_t100_message.
         DATA: li_t100_message TYPE REF TO if_t100_message.
         li_t100_message ?= io_.
 
-        DATA(ls_msg) = VALUE zif_log=>ts_msg(
+        DATA(ls_msg) = VALUE zif_llm_log=>ts_msg(
             msgid = li_t100_message->t100key-msgid
             msgno = li_t100_message->t100key-msgno
             msgty = iv_type
@@ -407,12 +407,12 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
             msgv3 = li_t100_message->t100key-attr3
             msgv4 = li_t100_message->t100key-attr4
         ).
-        zif_logger~add( ls_msg ).
+        zif_llm_logger~add( ls_msg ).
 
       ELSEIF io_ IS INSTANCE OF if_message.
         DATA: li_message TYPE REF TO if_message.
         li_message ?= io_.
-        zif_logger~add( li_message->get_text( ) ).
+        zif_llm_logger~add( li_message->get_text( ) ).
 
       ELSEIF io_ IS INSTANCE OF cx_root.
         add_exception( io_            = io_
@@ -428,7 +428,7 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
     ELSEIF lo_msg_type->type_kind = cl_abap_typedescr=>typekind_table.
       ASSIGN io_ TO <fs_any_t>.
       LOOP AT <fs_any_t> ASSIGNING <fs_any>.
-        zif_logger~add( io_ = <fs_any> ).
+        zif_llm_logger~add( io_ = <fs_any> ).
       ENDLOOP.
     ELSEIF lo_msg_type->absolute_name = '\TYPE=BAPIRET1'         OR
            lo_msg_type->absolute_name = '\TYPE=BAPIRET2'         OR
@@ -507,13 +507,13 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~display.
+  METHOD zif_llm_logger~display.
     "not supported
   ENDMETHOD.
 
 
-  METHOD zif_logger~e.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~e.
+    ro_ = zif_llm_logger~add(
             io_            = io_
             iv_type        = iv_type
             is_context     = is_context
@@ -522,8 +522,8 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~i.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~i.
+    ro_ = zif_llm_logger~add(
             io_            = io_
             iv_type        = iv_type
             is_context     = is_context
@@ -532,8 +532,8 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~s.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~s.
+    ro_ = zif_llm_logger~add(
             io_            = io_
             iv_type        = iv_type
             is_context     = is_context
@@ -542,8 +542,8 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_logger~w.
-    ro_ = zif_logger~add(
+  METHOD zif_llm_logger~w.
+    ro_ = zif_llm_logger~add(
             io_            = io_
             iv_type        = iv_type
             is_context     = is_context
@@ -552,13 +552,13 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log~get_analyser.
-    ro_ = zcl_log_analyser=>new( me ).
+  METHOD zif_llm_log~get_analyser.
+    ro_ = zcl_llm_log_analyser=>new( me ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_bapiret2_table.
-    DATA(lt_msg) = zif_log~get_flatten_table( ).
+  METHOD zif_llm_log~get_bapiret2_table.
+    DATA(lt_msg) = zif_llm_log~get_flatten_table( ).
     DATA: lr_ TYPE REF TO ts_msg.
     LOOP AT lt_msg ASSIGNING FIELD-SYMBOL(<fs_msg>).
       APPEND INITIAL LINE TO rt_ ASSIGNING FIELD-SYMBOL(<fs_>).
@@ -583,20 +583,20 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log~get_converter.
-    ro_ = zcl_log_converter=>new( me ).
+  METHOD zif_llm_log~get_converter.
+    ro_ = zcl_llm_log_converter=>new( me ).
   ENDMETHOD.
 
 
-  METHOD zif_log~get_flatten_table.
+  METHOD zif_llm_log~get_flatten_table.
     DATA: lr_ TYPE REF TO ts_msg.
     DATA: lt_msg TYPE tt_msg.
     lt_msg = get_message_table( ).
     LOOP AT lt_msg REFERENCE INTO lr_.
       IF lr_->exception IS NOT INITIAL.
 
-        IF lr_->exception IS INSTANCE OF zif_log.
-          DATA: li_log TYPE REF TO zif_log.
+        IF lr_->exception IS INSTANCE OF zif_llm_log.
+          DATA: li_log TYPE REF TO zif_llm_log.
           li_log ?= lr_->exception.
           DATA: lt_ TYPE tt_msg.
           lt_ = li_log->get_flatten_table( ).
@@ -606,7 +606,7 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
           DATA: li_t100_message TYPE REF TO if_t100_message.
           li_t100_message ?= lr_->exception.
 
-          APPEND VALUE zif_log=>ts_msg(
+          APPEND VALUE zif_llm_log=>ts_msg(
               msgid = li_t100_message->t100key-msgid
               msgno = li_t100_message->t100key-msgno
               msgty = lr_->msgty
@@ -620,13 +620,13 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
           DATA: li_message TYPE REF TO if_message.
           li_message ?= lr_->exception.
 
-          APPEND VALUE zif_log=>ts_msg( free_text_msg = li_message->get_text( ) ) TO rt_ .
+          APPEND VALUE zif_llm_log=>ts_msg( free_text_msg = li_message->get_text( ) ) TO rt_ .
 
         ELSE.
 
           DATA(lo_msg_type) = cl_abap_typedescr=>describe_by_data( lr_->exception ).
           MESSAGE e003(zcx_) WITH lo_msg_type->absolute_name INTO gv_msg.
-          APPEND VALUE zif_log=>ts_msg(
+          APPEND VALUE zif_llm_log=>ts_msg(
               msgid = sy-msgid
               msgno = sy-msgno
               msgty = sy-msgty
@@ -646,7 +646,7 @@ CLASS ZCL_MINILOG IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_log~get_message_table.
+  METHOD zif_llm_log~get_message_table.
     rt_ = mt_msg.
   ENDMETHOD.
 ENDCLASS.

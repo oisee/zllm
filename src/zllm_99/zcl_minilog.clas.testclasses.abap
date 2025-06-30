@@ -208,7 +208,7 @@ CLASS ltc_minilog IMPLEMENTATION.
     DATA(lo_log2) = zcl_minilog=>new(  ).
     cut->add( lo_log2 ).
     "then
-    data: lt_ type zif_log=>tt_msg.
+    data: lt_ type zif_llm_log=>tt_msg.
     cl_abap_unit_assert=>assert_equals( act = cut->get_message_table(  )
                                         exp = lt_
                                       ).
@@ -273,7 +273,7 @@ CLASS ltc_minilog_cast IMPLEMENTATION.
 
   METHOD cast_to_log.
     "when
-    DATA: li_log TYPE REF TO zif_log.
+    DATA: li_log TYPE REF TO zif_llm_log.
     li_log = cut.
     "then
 *    data(lo_type) = cl_abap_typedescr=>describe_by_data( li_log ).
@@ -284,7 +284,7 @@ CLASS ltc_minilog_cast IMPLEMENTATION.
 
   METHOD cast_to_logger.
     "when
-    DATA: li_logger TYPE REF TO zif_logger.
+    DATA: li_logger TYPE REF TO zif_llm_logger.
     li_logger = cut.
     "then
 *    data(lo_type) = cl_abap_typedescr=>describe_by_data( li_logger ).
@@ -295,8 +295,8 @@ CLASS ltc_minilog_cast IMPLEMENTATION.
 
   METHOD cast_to_log_logger.
     "when
-    DATA: li_log TYPE REF TO zif_log.
-    DATA: li_logger TYPE REF TO zif_logger.
+    DATA: li_log TYPE REF TO zif_llm_log.
+    DATA: li_logger TYPE REF TO zif_llm_logger.
     li_log = cut.
     li_logger ?= li_log. "convert logger to log.
     li_logger->add(  )->add( ).
