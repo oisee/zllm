@@ -129,7 +129,7 @@ CLASS ZCL_LLM_00_CACHE IMPLEMENTATION.
       cdate = sy-datum
     ).
     GET TIME STAMP FIELD ls_-ts.
-    MODIFY zllm_00_cache FROM ls_.
+    MODIFY zllm_00_cache FROM @ls_.
     me->commit( ).
   ENDMETHOD.
 
