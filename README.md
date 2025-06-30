@@ -39,7 +39,7 @@ For a deep-dive into the framework and its capabilities, please see the [GUIDE.m
 - **Error Recovery**: Robust error handling with retry mechanisms
 
 ### 🔐 Security Features
-- **Encoded Storage**: All virtual filesystem files are automatically encoded using symmetric encryption
+- **Encoded Storage**: Encryption is ENABLED by default - all virtual filesystem files are automatically encoded using symmetric encryption
 - **Configurable Seeds**: Set custom encryption seeds via `ZLLM_CODEC` parameter
 - **API Key Protection**: Credentials are never stored in plain text
 - **User Isolation**: Each user's data is encoded with their specific seed
@@ -119,11 +119,21 @@ DATA(lo_result) = lo_parallel_step->start( REF #( lt_documents ) ).
 
 ### 💾 Smart Caching
 ```abap
-" Enable caching to reduce API calls
-DATA(lo_cache) = zcl_llm_00_cache=>new( iv_seed = 42 ).
-DATA(lo_llm_cached) = zcl_llm=>new( 
+" Caching is ENABLED by default - all LLM responses are automatically cached
+DATA(lo_llm) = zcl_llm=>new( 'DEFAULT.ENV' ).  " Uses default cache
+
+" To disable caching, inject a dummy cache:
+DATA(lo_cache_never) = zcl_llm_00_cache_never=>new( ).
+DATA(lo_llm_no_cache) = zcl_llm=>new( 
   iv_config = 'DEFAULT.ENV'
-  io_cache  = lo_cache
+  io_cache  = lo_cache_never  " This disables caching
+).
+
+" To use custom cache with specific seed:
+DATA(lo_cache_custom) = zcl_llm_00_cache=>new( iv_seed = 42 ).
+DATA(lo_llm_custom) = zcl_llm=>new( 
+  iv_config = 'DEFAULT.ENV'
+  io_cache  = lo_cache_custom
 ).
 ```
 
@@ -334,7 +344,7 @@ The framework leverages custom tables for persistence and analytics:
 
 - **[GUIDE.md](GUIDE.md)** - Comprehensive usage guide with examples and component reference
 - **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Technical implementation details of PREDICTOKEN
-- **[Architecture Diagrams](.doc/)** - Detailed component documentation and diagrams
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Detailed architecture diagrams and component documentation
 
 ## Package Structure
 
