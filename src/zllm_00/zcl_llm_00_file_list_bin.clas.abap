@@ -146,7 +146,7 @@ CLASS ZCL_LLM_00_FILE_LIST_BIN IMPLEMENTATION.
     DATA(lo_codec) = zcl_llm_00_codec=>new( ).
     ls_-v = lo_codec->encode( ls_-v ).
 *--------------------------------------------------------------------*
-    MODIFY zllm_00_bin FROM ls_.
+    MODIFY zllm_00_bin FROM @ls_.
     me->commit( ).
 *--------------------------------------------------------------------*
     " Append the updated file to the list
