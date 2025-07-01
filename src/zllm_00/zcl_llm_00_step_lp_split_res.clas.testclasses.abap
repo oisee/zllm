@@ -42,30 +42,30 @@ CLASS lcl_ IMPLEMENTATION.
     ).
     mo_cut =  zcl_llm_00_step_lp_split_res=>new_from_string(
       iv_ =
-      `# Header                                                                                                       ` && zif_col=>n &&
-      ` quazimordo ?                                                                                                  ` && zif_col=>n &&
-      ` stupid text test text test                          stupid text test text test                                ` && zif_col=>n &&
-      `                           stupid text test text test                          stupid text test text test      ` && zif_col=>n &&
-      `## Header 2                                                                                                    ` && zif_col=>n &&
-      `### Header 3                                                                                                   ` && zif_col=>n &&
-      ` quazimordo ?                                                                                                  ` && zif_col=>n &&
-      ` stupid text test text test                                                                                    ` && zif_col=>n &&
-      `                                                                                                               ` && zif_col=>n &&
-      ` stupid text test text test                          stupid text test text test                                ` && zif_col=>n &&
-      `                           stupid text test text test                          stupid text test text test      ` && zif_col=>n &&
-      `## Header 2                                                                                                    ` && zif_col=>n &&
-      ` stupid text test text test                          stupid text test text test                                ` && zif_col=>n &&
-      `                           stupid text test text test                          stupid text test text test      ` && zif_col=>n &&
-      `# Header                                                                                                       ` && zif_col=>n &&
-      ` quazimordo ?                                                                                                  ` && zif_col=>n &&
-      ` stupid text test text test                                                                                    ` && zif_col=>n &&
-      `                                                                                                               ` && zif_col=>n &&
-      ` stupid text test text test                          stupid text test text test                                ` && zif_col=>n &&
-      `                           stupid text test text test                          stupid text test text test      ` && zif_col=>n &&
-      `## Header 2                                                                                                    ` && zif_col=>n &&
-      ` quazimordo ?                                                                                                  ` && zif_col=>n &&
-      ` stupid text test text test                                                                                    ` && zif_col=>n &&
-      `                                                                                                               ` && zif_col=>n &&
+      `# Header                                                                                                       ` && zif_llm=>n &&
+      ` quazimordo ?                                                                                                  ` && zif_llm=>n &&
+      ` stupid text test text test                          stupid text test text test                                ` && zif_llm=>n &&
+      `                           stupid text test text test                          stupid text test text test      ` && zif_llm=>n &&
+      `## Header 2                                                                                                    ` && zif_llm=>n &&
+      `### Header 3                                                                                                   ` && zif_llm=>n &&
+      ` quazimordo ?                                                                                                  ` && zif_llm=>n &&
+      ` stupid text test text test                                                                                    ` && zif_llm=>n &&
+      `                                                                                                               ` && zif_llm=>n &&
+      ` stupid text test text test                          stupid text test text test                                ` && zif_llm=>n &&
+      `                           stupid text test text test                          stupid text test text test      ` && zif_llm=>n &&
+      `## Header 2                                                                                                    ` && zif_llm=>n &&
+      ` stupid text test text test                          stupid text test text test                                ` && zif_llm=>n &&
+      `                           stupid text test text test                          stupid text test text test      ` && zif_llm=>n &&
+      `# Header                                                                                                       ` && zif_llm=>n &&
+      ` quazimordo ?                                                                                                  ` && zif_llm=>n &&
+      ` stupid text test text test                                                                                    ` && zif_llm=>n &&
+      `                                                                                                               ` && zif_llm=>n &&
+      ` stupid text test text test                          stupid text test text test                                ` && zif_llm=>n &&
+      `                           stupid text test text test                          stupid text test text test      ` && zif_llm=>n &&
+      `## Header 2                                                                                                    ` && zif_llm=>n &&
+      ` quazimordo ?                                                                                                  ` && zif_llm=>n &&
+      ` stupid text test text test                                                                                    ` && zif_llm=>n &&
+      `                                                                                                               ` && zif_llm=>n &&
       `                                                                                                               `
       io_llm = mo_llm
     ).

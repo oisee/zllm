@@ -17,8 +17,8 @@ CLASS lcl_ IMPLEMENTATION.
     "mo_cut =
   ENDMETHOD.
   METHOD flatten_dref.
-*    DATA lt_ TYPE zif_col=>.
-*    TYPES: tt_tt TYPE STANDARD TABLE OF zif_col=>tt_gpart_vkont WITH DEFAULT KEY.
+*    DATA lt_ TYPE zif_llm=>.
+*    TYPES: tt_tt TYPE STANDARD TABLE OF zif_llm=>tt_gpart_vkont WITH DEFAULT KEY.
 *    lt_ = VALUE #(
 *      ( gpart = '111' vkont = '122' )
 *      ( gpart = '211' vkont = '222' )
@@ -45,8 +45,8 @@ CLASS lcl_ IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD flatten_table.
-*    DATA lt_ TYPE zif_col=>tt_gpart_vkont.
-*    TYPES: tt_tt TYPE STANDARD TABLE OF zif_col=>tt_gpart_vkont WITH DEFAULT KEY.
+*    DATA lt_ TYPE zif_llm=>tt_gpart_vkont.
+*    TYPES: tt_tt TYPE STANDARD TABLE OF zif_llm=>tt_gpart_vkont WITH DEFAULT KEY.
 *    lt_ = VALUE #(
 *      ( gpart = '111' vkont = '122' )
 *      ( gpart = '211' vkont = '222' )

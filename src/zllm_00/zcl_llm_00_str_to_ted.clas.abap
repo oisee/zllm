@@ -142,7 +142,7 @@ CLASS ZCL_LLM_00_STR_TO_TED IMPLEMENTATION.
             OTHERS                 = 2
         ).
         IF sy-subrc <> 0.
-          zcl_cpu=>ok( ).
+          "zcl_cpu=>ok( ).
         ENDIF.
 
         IF lr_->text IS BOUND.

@@ -95,7 +95,7 @@ CLASS ZCL_LLM_00_FLOW_RESULT IMPLEMENTATION.
           mr_res = me->zif_llm_00_step_result~collect( ).
         ENDIF.
       CATCH zcx_s INTO DATA(lx_s).
-        zcl_cpu=>ok( lx_s ).
+        "zcl_cpu=>ok( lx_s ).
     ENDTRY.
     mv_res = zcl_llm_00_string=>new( mr_res )->to_string( ).
     rv_ = mv_res.
