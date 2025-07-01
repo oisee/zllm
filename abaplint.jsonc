@@ -7,6 +7,16 @@
         "url": "https://github.com/open-abap/open-abap-core",
         "files": "/src/**/*.*",
         "folder": "/lint_deps"
+      },
+      {
+        "url": "https://github.com/microsoft/aisdkforsapabap",
+        "files": "/src/**/*.*",
+        "folder": "/aisdk_deps"
+      },
+      {
+        "url": "https://github.com/oisee/zvdb",
+        "files": "/src/**/*.*",
+        "folder": "/zvdb_deps"
       }
     ],
     "syntax": {
