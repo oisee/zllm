@@ -24,7 +24,7 @@
         "errorNamespace": "^(Z|Y|LCL_|TY_|TS_|TT_|TTR_|LIF_)"
     },
     "rules": {
-        "7bit_ascii": true,
+        "7bit_ascii": false,
         "ambiguous_statement": true,
         "parser_missing_space": true,
         "begin_end_names": true,
