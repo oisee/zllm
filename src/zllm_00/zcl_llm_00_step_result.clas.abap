@@ -210,8 +210,8 @@ CLASS ZCL_LLM_00_STEP_RESULT IMPLEMENTATION.
           mr_res = me->zif_llm_00_step_result~collect( ).
         ENDIF.
       CATCH zcx_s INTO DATA(lx_s).
-        cl_demo_output=>display( lx_s->get_text( ) && zif_col=>n && lx_s->get_longtext( ) ).
-        zcl_cpu=>ok( lx_s ).
+        cl_demo_output=>display( lx_s->get_text( ) && zif_llm=>n && lx_s->get_longtext( ) ).
+        "zcl_cpu=>ok( lx_s ).
     ENDTRY.
     mv_res = zcl_llm_00_string=>new( mr_res )->to_string( ).
     rv_ = mv_res.

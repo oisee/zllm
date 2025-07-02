@@ -73,7 +73,7 @@ CLASS ZCL_LLM_00_TED_EVENT_HANDLER IMPLEMENTATION.
         error_cntl_call_method = 1     " Error while setting property of TextEdit control
     ).
     IF sy-subrc <> 0.
-      zcl_cpu=>ok( ).
+      "zcl_cpu=>ok( ).
     ENDIF.
 
   ENDMETHOD.
@@ -90,7 +90,7 @@ CLASS ZCL_LLM_00_TED_EVENT_HANDLER IMPLEMENTATION.
         not_supported_by_gui   = 2    " Method is not supported by installed GUI
     ).
     IF sy-subrc <> 0.
-      zcl_cpu=>ok( ).
+      "zcl_cpu=>ok( ).
     ENDIF.
 
   ENDMETHOD.
@@ -114,7 +114,7 @@ CLASS ZCL_LLM_00_TED_EVENT_HANDLER IMPLEMENTATION.
         OTHERS                 = 3
     ).
     IF sy-subrc <> 0.
-      zcl_cpu=>ok( ).
+      "zcl_cpu=>ok( ).
     ENDIF.
 
     IF lv_is_modified = 1.
@@ -133,7 +133,7 @@ CLASS ZCL_LLM_00_TED_EVENT_HANDLER IMPLEMENTATION.
         not_supported_by_gui   = 2    " Method is not supported by installed GUI
     ).
     IF sy-subrc <> 0.
-      zcl_cpu=>ok( ).
+      "zcl_cpu=>ok( ).
     ENDIF.
 
   ENDMETHOD.

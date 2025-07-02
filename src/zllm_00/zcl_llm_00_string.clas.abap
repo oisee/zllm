@@ -112,7 +112,7 @@ CLASS ZCL_LLM_00_STRING IMPLEMENTATION.
       IF sy-tabix = 1.
         lv_ = lr_->*.
       ELSE.
-        lv_ = lv_ && zif_col=>n && lr_->*.
+        lv_ = lv_ && zif_llm=>n && lr_->*.
       ENDIF.
     ENDLOOP.
 
@@ -239,7 +239,7 @@ CLASS ZCL_LLM_00_STRING IMPLEMENTATION.
           RETURN.
         ENDIF.
         IF zcl_llm_00_json=>is_string( <fs_l1> ).
-          rv_ = zcl_llm_00_pat=>new( '{T} ' && zif_col=>n )->apply( ir_ ).
+          rv_ = zcl_llm_00_pat=>new( '{T} ' && zif_llm=>n )->apply( ir_ ).
           RETURN.
         ELSEIF zcl_llm_00_json=>is_table(
             EXPORTING ir_ = <fs_l1>

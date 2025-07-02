@@ -773,7 +773,7 @@ CLASS ZCL_LLM_00_SPL IMPLEMENTATION.
         OTHERS            = 3
     ).
     IF sy-subrc <> 0.
-      zcl_cpu=>ok( ).
+      "zcl_cpu=>ok( ).
     ENDIF.
 
     lo_->set_row_height( id     = 1
@@ -882,7 +882,7 @@ CLASS ZCL_LLM_00_SPL IMPLEMENTATION.
         OTHERS            = 3
     ).
     IF sy-subrc <> 0.
-      zcl_cpu=>ok( ).
+      "zcl_cpu=>ok( ).
     ENDIF.
 
     lo_->set_column_width( id = 1

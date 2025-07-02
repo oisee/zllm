@@ -246,8 +246,8 @@ CLASS ZCL_LLM IMPLEMENTATION.
 
   METHOD string_to_tab.
     DATA(lv_) = iv_.
-    REPLACE ALL OCCURRENCES OF zif_col=>cr_lf IN lv_ WITH zif_col=>n.
-    SPLIT lv_ AT zif_col=>n INTO TABLE rt_.
+    REPLACE ALL OCCURRENCES OF zif_llm=>cr_lf IN lv_ WITH zif_llm=>n.
+    SPLIT lv_ AT zif_llm=>n INTO TABLE rt_.
   ENDMETHOD.
 
 
@@ -262,14 +262,14 @@ CLASS ZCL_LLM IMPLEMENTATION.
         rv_ = lr_->*.
         CONTINUE.
       ENDIF.
-      rv_ = rv_ && zif_col=>n && lr_->*.
+      rv_ = rv_ && zif_llm=>n && lr_->*.
     ENDLOOP.
   ENDMETHOD.
 
 
   METHOD tstring_hash.
     DATA lv_ TYPE string.
-    CONCATENATE LINES OF it_ INTO lv_ SEPARATED BY zif_col=>n.
+    CONCATENATE LINES OF it_ INTO lv_ SEPARATED BY zif_llm=>n.
 
     CALL FUNCTION 'CALCULATE_HASH_FOR_CHAR'
       EXPORTING

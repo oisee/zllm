@@ -1023,7 +1023,7 @@
     <SEOCOMPOTX>
      <CMPNAME>STRING_TO_TAB</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>string to string_t (split by zif_col=&gt;n, cr_lf -&gt; n)</DESCRIPT>
+     <DESCRIPT>string to string_t (split by zif_llm=&gt;n, cr_lf -&gt; n)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TAB_TO_STRING</CMPNAME>

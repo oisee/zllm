@@ -39,7 +39,7 @@ Diff	Filename	Token Count	Text Length	Word Count	Punctuation Count	Number Count	
 2	annotated-@zcol_120_range.fugr.tableproc_zcol_120_range.abap	118	662	62	15	12	75	12	6	116	156
 -268	annotated-@zcl_col_000_ztvarvc_range_desc.clas.abap	3901	16326	2156	515	138	4499	433	280	4169	5112
 -95	annotated-@zcol_116_dunn_harmoni.fugr.zcol_116_dunn_mass_evnt_1712.abap	896	3668	366	86	138	752	93	35	991	1210
--12	annotated-@zif_col_120.intf.abap	655	2750	338	81	21	600	64	20	667	842
+-12	annotated-@zif_llm_120.intf.abap	655	2750	338	81	21	600	64	20	667	842
 -9	annotated-@zcol_003.fugr.saplzcol_003.abap	234	1400	123	43	26	350	19	24	243	328
 9	annotated-@zcol_120_blart.fugr.saplzcol_120_blart.abap	349	1842	164	60	36	488	25	29	340	487
 -349	annotated-@zcl_col_120_lite.clas.abap	11914	45257	5108	1609	806	11058	1227	666	12263	16189

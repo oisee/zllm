@@ -849,73 +849,73 @@ CLASS lcl_ IMPLEMENTATION.
     gs_fm-o_0 = 'Output for the step, will be used as an input for the next step. o = Step( s(i) + u(i) )'.
 
     gs_fm-i_1 = `Retrofuturistic Landscapes Urban Days Of Life Comedy`.
-    gs_fm-s_1 = |You are the best storyteller. | && zif_col=>n &&
-                |                   | &&            zif_col=>n &&
-                |respond in JSON:   | &&            zif_col=>n &&
-                |                   | &&            zif_col=>n &&
-                |\{                  | &&           zif_col=>n &&
-                | "intro": <....>,  | &&            zif_col=>n &&
-                | "middle": <....>, | &&            zif_col=>n &&
-                | "outro": <....>   | &&            zif_col=>n &&
+    gs_fm-s_1 = |You are the best storyteller. | && zif_llm=>n &&
+                |                   | &&            zif_llm=>n &&
+                |respond in JSON:   | &&            zif_llm=>n &&
+                |                   | &&            zif_llm=>n &&
+                |\{                  | &&           zif_llm=>n &&
+                | "intro": <....>,  | &&            zif_llm=>n &&
+                | "middle": <....>, | &&            zif_llm=>n &&
+                | "outro": <....>   | &&            zif_llm=>n &&
                 |\}                  |.
 
 
     gs_fm-u_1 = 'Generate a plan for the story in the genre: {T}'.
 
 *--------------------------------------------------------------------*
-    gs_fm-s_2 = `You are the best storyteller.                                        ` && zif_col=>n &&
-                `                                                                     ` && zif_col=>n &&
-                `respond in JSON:                                                     ` && zif_col=>n &&
-                `                                                                     ` && zif_col=>n &&
-                `{  "C": [                                                            ` && zif_col=>n &&
-                `      {"name": "<name/>", "role":"<role/>", "visual":"<visual/>" },  ` && zif_col=>n &&
-                `],                                                                   ` && zif_col=>n &&
-                `"P": [                                                               ` && zif_col=>n &&
-                `      {"part": "<PartName/>", "content", "<content/>" },             ` && zif_col=>n &&
-                `      {"part": "<PartName/>", "content", "<content/>" },             ` && zif_col=>n &&
-                `                                                                     ` && zif_col=>n &&
-                `]                                                                    ` && zif_col=>n &&
+    gs_fm-s_2 = `You are the best storyteller.                                        ` && zif_llm=>n &&
+                `                                                                     ` && zif_llm=>n &&
+                `respond in JSON:                                                     ` && zif_llm=>n &&
+                `                                                                     ` && zif_llm=>n &&
+                `{  "C": [                                                            ` && zif_llm=>n &&
+                `      {"name": "<name/>", "role":"<role/>", "visual":"<visual/>" },  ` && zif_llm=>n &&
+                `],                                                                   ` && zif_llm=>n &&
+                `"P": [                                                               ` && zif_llm=>n &&
+                `      {"part": "<PartName/>", "content", "<content/>" },             ` && zif_llm=>n &&
+                `      {"part": "<PartName/>", "content", "<content/>" },             ` && zif_llm=>n &&
+                `                                                                     ` && zif_llm=>n &&
+                `]                                                                    ` && zif_llm=>n &&
                 `}`.
 
-    gs_fm-u_2 = `For each of the sections:                          ` && zif_col=>n &&
-                `                                                   ` && zif_col=>n &&
-                `Intro:                                             ` && zif_col=>n &&
-                `                                                   ` && zif_col=>n &&
-                `{T-INTRO}                                          ` && zif_col=>n &&
-                `                                                   ` && zif_col=>n &&
-                `Middle:                                            ` && zif_col=>n &&
-                `{T-MIDDLE}                                         ` && zif_col=>n &&
-                `                                                   ` && zif_col=>n &&
-                `Outro:                                             ` && zif_col=>n &&
-                `{T-OUTRO}                                          ` && zif_col=>n &&
-                `                                                   ` && zif_col=>n &&
-                `Generate a List of Characters and expant the Plot. ` && zif_col=>n &&
+    gs_fm-u_2 = `For each of the sections:                          ` && zif_llm=>n &&
+                `                                                   ` && zif_llm=>n &&
+                `Intro:                                             ` && zif_llm=>n &&
+                `                                                   ` && zif_llm=>n &&
+                `{T-INTRO}                                          ` && zif_llm=>n &&
+                `                                                   ` && zif_llm=>n &&
+                `Middle:                                            ` && zif_llm=>n &&
+                `{T-MIDDLE}                                         ` && zif_llm=>n &&
+                `                                                   ` && zif_llm=>n &&
+                `Outro:                                             ` && zif_llm=>n &&
+                `{T-OUTRO}                                          ` && zif_llm=>n &&
+                `                                                   ` && zif_llm=>n &&
+                `Generate a List of Characters and expant the Plot. ` && zif_llm=>n &&
                 `Please generate the visual description for each character.`.
 *--------------------------------------------------------------------*
     gs_fm-s_3 = `You are the best storyteller. `.
-    gs_fm-u_3 = `Here is the context:` && zif_col=>n &&
-                `# Characters:` && zif_col=>n &&
-                `                              ` && zif_col=>n &&
-                `## Name: {T-C-NAME}              ` && zif_col=>n &&
-                `## Role: {T-C-ROLE}` && zif_col=>n &&
-                `## Visual: {T-C-VISUAL}` && zif_col=>n &&
-                `----` && zif_col=>n &&
-                `` && zif_col=>n &&
-                `# PLOT:` && zif_col=>n &&
-                `` && zif_col=>n &&
-                `## {T-P-PART} :` && zif_col=>n &&
-                `{T-P-CONTENT}` && zif_col=>n &&
-                `---` && zif_col=>n &&
+    gs_fm-u_3 = `Here is the context:` && zif_llm=>n &&
+                `# Characters:` && zif_llm=>n &&
+                `                              ` && zif_llm=>n &&
+                `## Name: {T-C-NAME}              ` && zif_llm=>n &&
+                `## Role: {T-C-ROLE}` && zif_llm=>n &&
+                `## Visual: {T-C-VISUAL}` && zif_llm=>n &&
+                `----` && zif_llm=>n &&
+                `` && zif_llm=>n &&
+                `# PLOT:` && zif_llm=>n &&
+                `` && zif_llm=>n &&
+                `## {T-P-PART} :` && zif_llm=>n &&
+                `{T-P-CONTENT}` && zif_llm=>n &&
+                `---` && zif_llm=>n &&
                 `Please write a short funny story for the context Above, in a format of russian traditional absurdist anecdote`.
 *--------------------------------------------------------------------*
     gs_fm-s_4 = 'You are the best literature critic.'.
-    gs_fm-u_4 = `Here is the [STORY] Written by one of the young Authors: ` && zif_col=>n &&
-                `                                                         ` && zif_col=>n &&
-                `[STORY]                                                  ` && zif_col=>n &&
-                `                                                         ` && zif_col=>n &&
-                `{T}                                                      ` && zif_col=>n &&
-                `                                                         ` && zif_col=>n &&
-                `[/STORY]                                                 ` && zif_col=>n &&
+    gs_fm-u_4 = `Here is the [STORY] Written by one of the young Authors: ` && zif_llm=>n &&
+                `                                                         ` && zif_llm=>n &&
+                `[STORY]                                                  ` && zif_llm=>n &&
+                `                                                         ` && zif_llm=>n &&
+                `{T}                                                      ` && zif_llm=>n &&
+                `                                                         ` && zif_llm=>n &&
+                `[/STORY]                                                 ` && zif_llm=>n &&
                 `Please Summarize it and give feedback                    ` .
 
     gr_fm  = REF #( gs_fm ).
@@ -937,7 +937,7 @@ CLASS lcl_ IMPLEMENTATION.
                    iv_max       = 24
                  ).
       CATCH zcx_s INTO DATA(lx_s). " z-exception static check (base).
-        zcl_cpu=>ok( ).                                    "~ Handles exceptions during instantiation.
+        "zcl_cpu=>ok( ).                                    "~ Handles exceptions during instantiation.
     ENDTRY.
 
     gt_ted = go_stt->get_ted( ).                           "~ Retrieves text editor instances.
@@ -1084,11 +1084,11 @@ CLASS lcl_ IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD zif_llm_00_trace~in.
-    cl_demo_output=>display_text( |in for { iv_id }:| && zif_col=>n && iv_ ).
+    cl_demo_output=>display_text( |in for { iv_id }:| && zif_llm=>n && iv_ ).
   ENDMETHOD.
 
   METHOD zif_llm_00_trace~out.
-    cl_demo_output=>display_text( |out for { iv_id }:| && zif_col=>n && iv_ ).
+    cl_demo_output=>display_text( |out for { iv_id }:| && zif_llm=>n && iv_ ).
   ENDMETHOD.
 
 ENDCLASS.

@@ -250,23 +250,23 @@ CLASS ZCL_LLM_00_STEP_LP_SPLIT_RES IMPLEMENTATION.
     ENDIF.
 *--------------------------------------------------------------------*
     IF me->split_on( EXPORTING
-      iv_on  = zif_col=>n && `# `      iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
+      iv_on  = zif_llm=>n && `# `      iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
       RETURN.
     ENDIF.
     IF me->split_on( EXPORTING
-      iv_on  = zif_col=>n && `## `     iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
+      iv_on  = zif_llm=>n && `## `     iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
       RETURN.
     ENDIF.
     IF me->split_on( EXPORTING
-      iv_on  = zif_col=>n && `### `    iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
+      iv_on  = zif_llm=>n && `### `    iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
       RETURN.
     ENDIF.
     IF me->split_on( EXPORTING
-      iv_on  = zif_col=>n && `#### `   iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
+      iv_on  = zif_llm=>n && `#### `   iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ IMPORTING  et_ = rt_ ) = abap_true.
       RETURN.
     ENDIF.
     IF me->split_on( EXPORTING
-      iv_on  = CONV #( zif_col=>n )    iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ iv_inc = 'X' IMPORTING  et_ = rt_ ) = abap_true.
+      iv_on  = CONV #( zif_llm=>n )    iv_lim = lv_lim  iv_low = lv_low iv_ = iv_ iv_inc = 'X' IMPORTING  et_ = rt_ ) = abap_true.
       RETURN.
     ENDIF.
     IF me->split_on( EXPORTING
@@ -283,12 +283,12 @@ CLASS ZCL_LLM_00_STEP_LP_SPLIT_RES IMPLEMENTATION.
     RETURN.
 *
 *    "header
-*    DATA(lv_h1) = zif_col=>n && `# `.
-*    DATA(lv_h2) = zif_col=>n && `## `.
-*    DATA(lv_h3) = zif_col=>n && `### `.
-*    DATA(lv_h4) = zif_col=>n && `#### `.
+*    DATA(lv_h1) = zif_llm=>n && `# `.
+*    DATA(lv_h2) = zif_llm=>n && `## `.
+*    DATA(lv_h3) = zif_llm=>n && `### `.
+*    DATA(lv_h4) = zif_llm=>n && `#### `.
 *    "newline
-*    DATA(lv_n) = zif_col=>n.
+*    DATA(lv_n) = zif_llm=>n.
 *    "sentence
 *    DATA(lv_s) = `.`.
 *    "word
@@ -420,7 +420,7 @@ CLASS ZCL_LLM_00_STEP_LP_SPLIT_RES IMPLEMENTATION.
           mr_res = me->zif_llm_00_step_result~collect( ).
         ENDIF.
       CATCH zcx_s INTO DATA(lx_s).
-        zcl_cpu=>ok( lx_s ).
+        "zcl_cpu=>ok( lx_s ).
     ENDTRY.
     mv_res = zcl_llm_00_string=>new( mr_res )->to_string( ).
     rv_ = mv_res.
