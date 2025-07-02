@@ -12,6 +12,958 @@
     <UNICODE>X</UNICODE>
     <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>ABAP Component Documentation: ZCL_LLM_00_SPL</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>1. Component Overview</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Type&lt;/&gt;: ABAP Class (&lt;U&gt;ZCL_LLM_00_SPL&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Technical Category&lt;/&gt;: SAP GUI Control Utility (UI Container</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>Management)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;System Role&lt;/&gt;: Utility/helper class for dynamic GUI layout</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>management, specifically for splitting SAP GUI containers into flexible</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>layouts</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Location and Namespace</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Namespace&lt;/&gt;: Z (custom, customer namespace)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Package&lt;/&gt;: &lt;U&gt;$ZLLM_00&lt;/&gt; (Lightweight LLM Module, as per related</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>documentation)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Component Role&lt;/&gt;: Provides a programmable interface to split SAP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>GUI containers into various layouts (horizontal, vertical, grid, etc.),</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>supporting advanced UI composition for custom SAP GUI applications.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>2. Technical Analysis</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.1 Core Functionality</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCL_LLM_00_SPL&lt;/&gt; is a utility class designed to facilitate the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>dynamic splitting of SAP GUI containers (&lt;U&gt;CL_GUI_CONTAINER&lt;/&gt;) into</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>various layouts using the &lt;U&gt;CL_GUI_SPLITTER_CONTAINER&lt;/&gt; control. It</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>provides methods to:</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Split a container horizontally, vertically, or into grids (e.g., 2x2,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>3x3, 5x4)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Flexibly split containers based on input parameters (number of</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>splits, orientation, thresholds)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Retrieve &quot;leaf&quot; containers (containers without children) and &quot;node&quot;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>containers (containers with children)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Support advanced layout patterns via a symbolic string interface</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(e.g., &lt;U&gt;&apos;-&apos;&lt;/&gt;, &lt;U&gt;&apos;|&apos;&lt;/&gt;, &lt;U&gt;&apos;=&apos;&lt;/&gt;, &lt;U&gt;&apos;+&apos;&lt;/&gt;, &lt;U&gt;&apos;#&apos;&lt;/&gt;, etc.)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Maintain parent-child relationships between containers for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>hierarchical UI management</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>This class is intended for use in custom SAP GUI applications where</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>dynamic, complex layouts are required, such as dashboards, editors, or</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>multi-pane interfaces.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.2 Technical Architecture</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Interfaces</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Public Methods&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;NEW&lt;/&gt;: Factory method to instantiate the splitter manager for a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>given container.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;SPLIT&lt;/&gt;: Main method to split the container according to a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>symbolic pattern string.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;SPLIT_FLEX_INTO&lt;/&gt;, &lt;U&gt;SPLIT_H_INTO&lt;/&gt;, &lt;U&gt;SPLIT_V_INTO&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>Methods for flexible splitting by count and orientation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;GET_LEAFS&lt;/&gt;, &lt;U&gt;GET_NODES&lt;/&gt;: Retrieve containers at the leaves</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>or nodes of the split tree.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;HEAD_SPLITTER&lt;/&gt;: Get the top-level splitter container.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Protected/Private Methods&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Internal splitting logic for various patterns (&lt;U&gt;SPLIT_H&lt;/&gt;,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;SPLIT_V&lt;/&gt;, &lt;U&gt;SPLIT_1X3&lt;/&gt;, &lt;U&gt;SPLIT_2X2&lt;/&gt;, etc.)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Adjustment and parent-child relationship management (&lt;U&gt;ADJUST&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Utility methods for head/tail node retrieval</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Dependencies</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;SAP GUI Controls&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;CL_GUI_CONTAINER&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;CL_GUI_SPLITTER_CONTAINER&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Standard Types&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;STRING&lt;/&gt;, &lt;U&gt;SAP_BOOL&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Related Classes&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  May be used in conjunction with other UI or LLM module classes in</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;$ZLLM_00&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Data Flow</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  The class maintains internal tables (&lt;U&gt;MT_&lt;/&gt;, &lt;U&gt;MT_SPLIT&lt;/&gt;) to</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>track created containers and splitters.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Each split operation creates new containers, assigns unique IDs, and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>maintains parent-child relationships.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  The symbolic split string is parsed character by character to</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>determine the split pattern.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.3 Implementation Details</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Design Patterns</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Factory Pattern&lt;/&gt;: &lt;U&gt;NEW&lt;/&gt; method for controlled instantiation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Composite Pattern&lt;/&gt;: Parent-child relationships between</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>containers, supporting hierarchical UI layouts.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Interpreter Pattern&lt;/&gt;: The &lt;U&gt;SPLIT&lt;/&gt; method interprets a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>symbolic string to determine the split pattern.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Algorithmic Highlights</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Symbolic Split String Parsing&lt;/&gt;: The &lt;U&gt;SPLIT&lt;/&gt; method parses a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>string (e.g., &lt;U&gt;&apos;-|=+#&apos;&lt;/&gt;) to apply a sequence of splits, supporting</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>complex layouts with a compact notation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Flexible Grid Calculation&lt;/&gt;: &lt;U&gt;SPLIT_FLEX_INTO&lt;/&gt; dynamically</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>calculates how to split a container into a grid based on a threshold,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>distributing splits evenly.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Parent-Child Management&lt;/&gt;: The &lt;U&gt;ADJUST&lt;/&gt; method ensures that</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>each container knows its parent, and marks containers with children</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>appropriately.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>UI Elements</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  All splits are performed using &lt;U&gt;CL_GUI_SPLITTER_CONTAINER&lt;/&gt;, which</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>is the standard SAP GUI control for dividing a container into panes.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Each split creates new containers that can be used to embed further</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>controls or custom UI elements.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Error Handling</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Minimal explicit error handling; relies on SAP GUI control exceptions.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  If a splitter cannot be created or a container is not found, the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>method returns gracefully (no dump).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Performance Considerations</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Designed for interactive GUI use; performance is generally not a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>concern unless creating very large, deeply nested layouts.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Internal tables are used for fast lookup and management.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Security Implications</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  No direct security implications; operates within the SAP GUI session</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>and does not handle sensitive data.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Assumes caller has appropriate authorizations to create and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>manipulate GUI controls.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>3. Business Context</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.1 Business Purpose</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Objective&lt;/&gt;: Enable developers to create advanced, flexible, and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>dynamic SAP GUI layouts programmatically, supporting modern UI</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>paradigms within the SAP GUI environment.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Significance&lt;/&gt;: Reduces the complexity of manual GUI layout</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>coding, supports rapid prototyping, and enables sophisticated user</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>interfaces for custom SAP applications.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.2 Process Integration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Usage Scenarios&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Custom dashboards with multiple panels</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Editors or viewers with split panes (e.g., code editors, document</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>viewers)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Analytical applications requiring dynamic layout changes</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Any SAP GUI application needing runtime-determined UI composition</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Integration Points&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Can be used as a utility in any custom SAP GUI program or transaction</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  May be orchestrated by higher-level UI frameworks or LLM-driven UI</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>generators</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.3 Operational Impact</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;User Experience&lt;/&gt;: Enables more user-friendly, flexible, and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>visually organized SAP GUI applications.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Developer Productivity&lt;/&gt;: Simplifies the creation of complex</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>layouts, reducing development time and errors.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.1 Configuration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;No external configuration required&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Parameters&lt;/&gt;: All behavior is controlled via method parameters</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>and symbolic split strings.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.2 Monitoring</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;No runtime monitoring required&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Debugging&lt;/&gt;: Developers can inspect the internal tables</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(&lt;U&gt;MT_&lt;/&gt;, &lt;U&gt;MT_SPLIT&lt;/&gt;) for troubleshooting layout issues.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.3 Common Issues</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;GUI Control Limits&lt;/&gt;: Excessive nesting or too many splits may</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>hit SAP GUI control limits or degrade performance.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Incorrect Split Strings&lt;/&gt;: Invalid or unsupported symbolic</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>strings may result in unexpected layouts or empty containers.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Parent Container Issues&lt;/&gt;: If the parent container is not</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>properly initialized or is destroyed, split operations may fail.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>5. Additional Information</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Author&lt;/&gt;: Not specified (Z namespace, likely customer development)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Last Updated&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Version&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Code Example</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Example: Horizontal Split</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lo_split) = zcl_llm_00_spl=&gt;new( io_ =</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>cl_gui_container=&gt;default_screen ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lt_panes) = lo_split-&gt;split( iv_ = &apos;-&apos; ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>&quot; lt_panes now contains two containers: top and bottom</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Example: 2x2 Grid</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lo_split) = zcl_llm_00_spl=&gt;new( io_ =</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>cl_gui_container=&gt;default_screen ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lt_panes) = lo_split-&gt;split( iv_ = &apos;+&apos; ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>&quot; lt_panes now contains four containers in a 2x2 grid</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Related Components</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;CL_GUI_CONTAINER&lt;/&gt;: SAP standard GUI container class</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;CL_GUI_SPLITTER_CONTAINER&lt;/&gt;: SAP standard splitter control</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;$ZLLM_00 Package&lt;/&gt;: Lightweight LLM Module, providing analytical</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>and UI utilities</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Summary Table</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Method,,Purpose</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;NEW&lt;/&gt;,,Instantiate the splitter manager</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;SPLIT&lt;/&gt;,,Split container according to symbolic pattern</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;SPLIT_H&lt;/&gt;, &lt;U&gt;SPLIT_V&lt;/&gt;,,Split horizontally or vertically</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;SPLIT_1X3&lt;/&gt;, &lt;U&gt;SPLIT_2X2&lt;/&gt;, etc.,,Predefined grid splits (1x3,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>,,2x2, 3x3, 5x4)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;SPLIT_FLEX_INTO&lt;/&gt;,,Flexible grid split based on count and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>,,orientation</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;GET_LEAFS&lt;/&gt;,,Get containers without children (for placing controls)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;GET_NODES&lt;/&gt;,,Get containers with children (splitters)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&lt;U&gt;HEAD_SPLITTER&lt;/&gt;,,Get the top-level splitter container</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LA</TDFORMAT>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Security Considerations</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Only operates on the SAP GUI frontend; no backend data access.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  No direct handling of sensitive data.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Ensure only authorized users can execute custom GUI applications</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>using this class.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Maintenance Notes</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Extensibility&lt;/&gt;: New split patterns can be added by extending the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>symbolic string parser and implementing new split methods.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Testing&lt;/&gt;: Test with various split patterns and container</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>hierarchies to ensure correct layout and parent-child relationships.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Performance&lt;/&gt;: Monitor for excessive nesting in complex</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>applications.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>References</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  SAP Help: CL_GUI_SPLITTER_CONTAINER</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abencl_gui_s</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>plitter_container.htm)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  SAP GUI Programming Guidelines</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/4e/7b6e7e6c8c11d18970</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>0000e8322d00/content.htm)</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;B&gt;In summary:&lt;/&gt;   &lt;U&gt;ZCL_LLM_00_SPL&lt;/&gt; is a powerful utility class</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>for SAP GUI layout management, enabling dynamic, programmable splitting</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>of containers into complex layouts. It is essential for building</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>modern, flexible SAP GUI applications and is a key component in the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;$ZLLM_00&lt;/&gt; analytical/UI module suite.</TDLINE>
+    </TLINE>
+    <TLINE/>
+   </LINES>
   </asx:values>
  </asx:abap>
 </abapGit>

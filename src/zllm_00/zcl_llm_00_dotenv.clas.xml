@@ -12,6 +12,762 @@
     <UNICODE>X</UNICODE>
     <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>ABAP Component Documentation: ZCL_LLM_00_DOTENV</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>1. Component Overview</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Type&lt;/&gt;: ABAP Class (&lt;U&gt;ZCL_LLM_00_DOTENV&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Technical Category&lt;/&gt;: Utility / Configuration Management</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;System Role&lt;/&gt;: Environment variable loader and parser for LLM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(Large Language Model) integration in SAP; provides .env file support</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>for configuration of API endpoints, credentials, and related parameters.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>2. Technical Analysis</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.1 Core Functionality</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCL_LLM_00_DOTENV&lt;/&gt; is a utility class designed to read, parse, and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>provide access to environment variables stored in &lt;U&gt;.env&lt;/&gt; files,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>following conventions common in cloud-native and modern development</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>environments. It is specifically tailored to support configuration for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>Azure OpenAI and similar LLM API integrations within the SAP system.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Reads &lt;U&gt;.env&lt;/&gt; files from a specified path or string.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Parses key-value pairs, ignoring comments and blank lines.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Provides access to individual environment variables via method</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;V&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Assembles a configuration structure (&lt;U&gt;TS_ENV&lt;/&gt;) for LLM API</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>access, supporting both granular and composite (URL-based)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>configuration.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Contains logic to parse Azure OpenAI full URLs and extract relevant</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>API parameters.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Supplies platform-specific default paths for &lt;U&gt;.env&lt;/&gt; files.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Supports both direct file access and string-based initialization.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.2 Technical Architecture</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Interfaces</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Public Methods:&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;NEW_FROM_STRING( IV_ )&lt;/&gt;: Instantiate from a string containing</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>.env content.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;NEW_FROM_PATH( IV_ )&lt;/&gt;: Instantiate from a file path (defaulting</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>to &lt;U&gt;C:\TEMP\.ENV&lt;/&gt;).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;NEW( IO_ )&lt;/&gt;: Instantiate from a file object implementing</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZIF_LLM_00_FILE&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;V( K )&lt;/&gt;: Retrieve the value for a given key.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;GET_CONFIG( )&lt;/&gt;: Returns a configuration structure (&lt;U&gt;TS_ENV&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>with all relevant API parameters.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;GET_AZURE_OPENAI( IV_PATH )&lt;/&gt;: Returns Azure OpenAI configuration</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>from a given path.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;GET_DEFAULT_ENV_PATH( )&lt;/&gt;: Returns the default .env file path</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>based on OS.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;PARSE_AZURE_FULL_URL( IV_URL )&lt;/&gt;: Parses a full Azure OpenAI URL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>into its components.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Dependencies</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;File Handling&lt;/&gt;: Uses &lt;U&gt;ZCL_LLM_00_FILE_LOCAL&lt;/&gt; and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZIF_LLM_00_FILE&lt;/&gt; for file operations.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Platform Detection&lt;/&gt;: Uses &lt;U&gt;CL_GUI_FRONTEND_SERVICES&lt;/&gt; for OS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>detection.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Structures&lt;/&gt;: Relies on &lt;U&gt;TS_ENV&lt;/&gt; (from</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZIF_LLM_00_TYPES&lt;/&gt;) for configuration aggregation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Related LLM Components&lt;/&gt;: Integrates with the broader</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;$ZLLM_00&lt;/&gt; package for LLM operations.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U4</TDFORMAT>
+     <TDLINE>Data Flow</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  1. &lt;B&gt;Initialization&lt;/&gt;: The class is instantiated with either a file</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>path, file object, or string.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  2. &lt;B&gt;Parsing&lt;/&gt;: The &lt;U&gt;.env&lt;/&gt; content is parsed into an internal</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>table of key-value pairs.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  3. &lt;B&gt;Access&lt;/&gt;: Consumers retrieve configuration values via &lt;U&gt;V&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>or aggregate structures via &lt;U&gt;GET_CONFIG&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  4. &lt;B&gt;Azure URL Parsing&lt;/&gt;: If a composite Azure OpenAI URL is</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>present, it is parsed for granular configuration.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.3 Implementation Details</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Parsing Logic&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Splits the input string by newline, trims whitespace, skips comments</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(&lt;U&gt;#&lt;/&gt;), and splits each line at the first &lt;U&gt;=&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Stores results in an internal table (&lt;U&gt;MT_KV&lt;/&gt;) keyed by variable</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>name.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Config Aggregation&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;GET_CONFIG&lt;/&gt; overlays values from the full Azure URL (if present)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>with individual variables, giving precedence to explicit variables.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Sets sensible defaults for token limits if not provided.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Azure URL Parsing&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Extracts API version, deployment name, and base URL from the Azure</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>OpenAI endpoint.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Sets token limits based on deployment name patterns (e.g., GPT-4</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>models).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Platform Awareness&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Determines the default &lt;U&gt;.env&lt;/&gt; path based on the detected OS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(Windows, Linux, macOS).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Minimal explicit error handling; relies on ABAP&apos;s default exception</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>mechanisms.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Returns empty values if keys are missing or parsing fails.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Security&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Sensitive values (API keys) are handled as plain strings; no</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>encryption or masking is implemented at this layer.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  File access is local and subject to SAP&apos;s file access controls.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>3. Business Context</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.1 Business Purpose</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>This class enables SAP systems to integrate with external LLM APIs</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(such as Azure OpenAI) by providing a flexible,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>environment-variable-driven configuration mechanism. It bridges the gap</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>between SAP&apos;s traditional configuration paradigms and modern</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>cloud-native practices, allowing for:</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Rapid reconfiguration without code changes.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Secure, externalized management of API credentials and endpoints.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Support for multiple deployment environments (dev, test, prod) via</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>different &lt;U&gt;.env&lt;/&gt; files.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.2 Process Integration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;LLM Integration&lt;/&gt;: Used by other classes in the &lt;U&gt;$ZLLM_00&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>package to obtain API endpoints, keys, and deployment information for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>LLM operations.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Onboarding and Sync&lt;/&gt;: Referenced in onboarding and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>synchronization reports (e.g., &lt;U&gt;R.ZLLM_00_ONBOARD&lt;/&gt;,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;R.ZLLM_00_SYNC&lt;/&gt;) for initial setup and configuration.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Tokenization and Prediction&lt;/&gt;: Indirectly supports tokenization</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>and prediction flows by providing model and deployment parameters.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.3 Operational Impact</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Configuration Flexibility&lt;/&gt;: Allows administrators and developers</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>to change LLM API settings without modifying ABAP code.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Security&lt;/&gt;: Centralizes sensitive configuration, but relies on</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>file system security for protection.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Portability&lt;/&gt;: Facilitates movement of SAP LLM integrations</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>across environments and platforms.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.1 Configuration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;.env File Location&lt;/&gt;: Default path is OS-dependent; can be</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>overridden.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Required Variables&lt;/&gt;: At minimum, API endpoint and key must be</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>present for LLM operations.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Composite URL Support&lt;/&gt;: If using Azure OpenAI, the full URL can</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>be provided and parsed automatically.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.2 Monitoring</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;File Access Errors&lt;/&gt;: Failures to read the &lt;U&gt;.env&lt;/&gt; file will</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>result in missing configuration; monitor for file existence and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>permissions.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Variable Presence&lt;/&gt;: Missing or malformed variables may cause</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>downstream API errors.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.3 Common Issues</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Incorrect Path&lt;/&gt;: Ensure the &lt;U&gt;.env&lt;/&gt; file is present at the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>expected location.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Malformed Lines&lt;/&gt;: Lines without &lt;U&gt;=&lt;/&gt; or with leading &lt;U&gt;#&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>are ignored.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Overlapping Config&lt;/&gt;: If both full URL and individual variables</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>are present, individual variables take precedence.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Token Limits&lt;/&gt;: Defaults are set, but may need adjustment for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>specific LLM deployments.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>5. Additional Information</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Author&lt;/&gt;: Not specified in code.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Last Updated&lt;/&gt;: Not specified; review version control for latest</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>changes.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Version&lt;/&gt;: Not specified.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Example Usage</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>&quot; Load .env from default path and get API key</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lo_dotenv) = zcl_llm_00_dotenv=&gt;new_from_path( ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lv_api_key) = lo_dotenv-&gt;v( &apos;API_KEY&apos; ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>&quot; Get full configuration structure for LLM API</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(ls_env) = lo_dotenv-&gt;get_config( ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Related Components</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;ZCL_LLM_00_FILE_LOCAL&lt;/&gt;: For file reading.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;TS_ENV&lt;/&gt;: Configuration structure for LLM API.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;ZCL_LLM_00_LLM_LAZY&lt;/&gt;, &lt;B&gt;ZCL_LLM_00_LLM_LAZY_WRAP&lt;/&gt;: LLM API</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>clients that consume this configuration.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;R.ZLLM_00_ONBOARD&lt;/&gt;, &lt;B&gt;R.ZLLM_00_SYNC&lt;/&gt;: Reports that utilize</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>this class for setup and synchronization.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Security Considerations</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Ensure &lt;U&gt;.env&lt;/&gt; files are protected at the OS/file system level.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Do not commit &lt;U&gt;.env&lt;/&gt; files with sensitive data to version control.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Consider additional encryption or secure storage for API keys in</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>production environments.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Summary</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCL_LLM_00_DOTENV&lt;/&gt; is a foundational utility for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>environment-driven configuration of LLM integrations in SAP, enabling</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>modern, flexible, and portable API connectivity with minimal code</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>changes. It is essential for any SAP system leveraging external AI/LLM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>services and should be maintained with attention to file security and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>configuration accuracy.</TDLINE>
+    </TLINE>
+    <TLINE/>
+   </LINES>
   </asx:values>
  </asx:abap>
 </abapGit>

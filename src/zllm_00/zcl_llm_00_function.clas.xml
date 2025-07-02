@@ -12,6 +12,742 @@
     <UNICODE>X</UNICODE>
     <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>ABAP Component Documentation: ZCL_LLM_00_FUNCTION</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>1. Component Overview</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Type&lt;/&gt;: ABAP Class (&lt;U&gt;ZCL_LLM_00_FUNCTION&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Technical Category&lt;/&gt;: Function Module Descriptor &amp;(and)&amp; Invoker</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(Business Logic/Integration)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;System Role&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Provides a programmatic interface to describe and (potentially)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>invoke SAP Function Modules (FMs), especially for integration with</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>AI/LLM (Large Language Model) scenarios such as OpenAI.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Acts as a bridge between SAP&apos;s function module infrastructure and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>external or analytical consumers (e.g., LLMs, code analysis tools).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>2. Technical Analysis</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.1 Core Functionality</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCL_LLM_00_FUNCTION&lt;/&gt; encapsulates the metadata and invocation</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>logic for SAP Function Modules (FMs). Its primary responsibilities are:</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Describe a Function Module&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Reads and stores metadata about a given FM (name, parameters,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>description, technical flags, etc.) using the SAP standard FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;RPY_FUNCTIONMODULE_READ_NEW&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Structures this metadata for consumption by other components,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>especially for serialization (e.g., JSON output for LLMs or APIs).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Expose Metadata via JSON&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Implements the &lt;U&gt;ZIF_LLM_00_JSON&lt;/&gt; interface to serialize the FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>description and parameters into JSON, facilitating integration with</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>external systems or AI models.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;(Stub) Invocation of Function Module&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Provides a method for invocation (&lt;U&gt;ZIF_LLM_00_FUNCTION~INVOKE&lt;/&gt;),</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>though in the current implementation, this is a stub returning &apos;OK&apos;.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.2 Technical Architecture</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Interfaces&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;ZIF_LLM_00_TYPES&lt;/&gt;: Provides type definitions, especially for FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>metadata.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;ZIF_LLM_00_JSON&lt;/&gt;: Enables JSON serialization of the FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>description.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;ZIF_LLM_00_FUNCTION&lt;/&gt;: Standardizes the interface for FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>invocation and parameter handling.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Dependencies&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;B&gt;SAP Standard&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Function Module &lt;U&gt;RPY_FUNCTIONMODULE_READ_NEW&lt;/&gt; (reads FM metadata).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Tables: &lt;U&gt;TFDIR&lt;/&gt;, &lt;U&gt;RS38L&lt;/&gt;, &lt;U&gt;TFTIT&lt;/&gt; (for FM technical info</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>and descriptions).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Custom&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;ZCL_LLM_00_PARAMETERS&lt;/&gt;: Used to wrap and structure FM parameters.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;ZCL_LLM_00_JSON&lt;/&gt;: Used for JSON serialization.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Exception class &lt;U&gt;ZCX_S&lt;/&gt;: Used for error signaling.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Flow&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  1. &lt;B&gt;Instantiation&lt;/&gt;: &lt;U&gt;NEW&lt;/&gt; class method creates an instance</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>for a given FM name.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  2. &lt;B&gt;Metadata Retrieval&lt;/&gt;: Constructor calls &lt;U&gt;get_desc&lt;/&gt;, which</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>uses &lt;U&gt;RPY_FUNCTIONMODULE_READ_NEW&lt;/&gt; to populate metadata and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>parameter structures.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  3. &lt;B&gt;Serialization&lt;/&gt;: &lt;U&gt;TO_JSON&lt;/&gt; method serializes the FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>description for external use.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  4. &lt;B&gt;Invocation&lt;/&gt;: (Stub) &lt;U&gt;INVOKE&lt;/&gt; method is available for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>future extension.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.3 Implementation Details</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Constructor&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Accepts an FM name, attempts to retrieve its metadata.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  On failure, raises an exception with a detailed message.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Metadata Extraction&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Uses &lt;U&gt;RPY_FUNCTIONMODULE_READ_NEW&lt;/&gt; to fill both technical flags</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(global, remote, update task, etc.) and parameter lists (import,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>export, changing, tables, exceptions, documentation, source).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Populates a structured description (&lt;U&gt;ms_&lt;/&gt;) with the FM name,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>description, and parameters.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Parameter Handling&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Parameters are wrapped using &lt;U&gt;ZCL_LLM_00_PARAMETERS=&gt;NEW&lt;/&gt;, which</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>likely standardizes them for further processing or serialization.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;JSON Serialization&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  The &lt;U&gt;TO_JSON&lt;/&gt; method delegates to &lt;U&gt;ZCL_LLM_00_JSON=&gt;TO_JSON&lt;/&gt;,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>serializing the FM description structure.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  If metadata retrieval fails, an exception is raised using</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCX_S=&gt;RAISE&lt;/&gt;, and a message is stored in &lt;U&gt;gv_msg&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Invocation&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  The &lt;U&gt;INVOKE&lt;/&gt; method is currently a stub, returning &apos;OK&apos;. This is</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>a placeholder for future logic to actually call the FM.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Aliases&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;TO_JSON&lt;/&gt; and &lt;U&gt;TS_PAR&lt;/&gt; are aliased for interface clarity.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Members&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Store FM name, technical flags, short text, function pool,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>remote/BASXML support, parameter structures, and error messages.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>3. Business Context</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.1 Business Purpose</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Integration with AI/LLM&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Enables SAP function modules to be described and potentially invoked</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>by AI models (e.g., OpenAI), facilitating automation, code analysis, or</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>intelligent orchestration.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Code Analysis &amp;(and)&amp; Documentation&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Provides a standardized, machine-readable description of FMs,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>supporting documentation, dependency mapping, and lifecycle management.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.2 Process Integration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;LLM-Driven Automation&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Forms part of a larger framework where LLMs can query, understand,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>and (eventually) execute SAP business logic via FMs.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;API/External Integration&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Can be used to expose SAP FMs to external systems in a controlled,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>well-documented manner.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.3 Operational Impact</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Knowledge Transfer&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Reduces the barrier for external systems or AI agents to interact</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>with SAP logic.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Maintainability&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Centralizes FM metadata, aiding in system documentation and technical</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>debt management.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Extensibility&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Lays the groundwork for automated or AI-driven FM invocation.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.1 Configuration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;No explicit configuration&lt;/&gt; required for this class.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Dependencies&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Requires the existence of the FM to be described.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Relies on the availability of &lt;U&gt;RPY_FUNCTIONMODULE_READ_NEW&lt;/&gt; and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>related SAP infrastructure.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.2 Monitoring</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Errors in FM metadata retrieval are raised as exceptions; monitoring</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>should capture these for troubleshooting.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Usage Logging&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  No built-in logging; consider extending for audit trails if used in</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>production automation.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.3 Common Issues</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;FM Not Found&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  If the specified FM does not exist, an exception is raised.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Authorization&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  The user/context must have sufficient authorization to read FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>metadata.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Stub Invocation&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Actual FM invocation is not implemented; consumers must not rely on</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>this for execution.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>5. Additional Information</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Author&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Last Updated&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Version&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Related Components and Data Model</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;ZCL_LLM_00_PARAMETERS&lt;/&gt;: Handles parameter structuring for FMs.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;ZCL_LLM_00_JSON&lt;/&gt;: Provides JSON serialization.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;ZCX_S&lt;/&gt;: Exception handling.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;ZLLM_00 Data Model&lt;/&gt;: This class fits into a broader graph-based</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>analytical subsystem (&lt;U&gt;ZLLM_00&lt;/&gt;), supporting code analysis,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>dependency mapping, and AI-driven code intelligence (see [Related</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>Components] for data model details).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Example Usage</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lo_function) = zcl_llm_00_function=&gt;new( &apos;MY_FUNCTION_MODULE&apos; ).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(json) = lo_function-&gt;to_json( ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Security Considerations</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Authorization&lt;/&gt;: Ensure only authorized users/systems can</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>instantiate and use this class, especially if extended to allow FM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>invocation.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Exposure&lt;/&gt;: Metadata about FMs may be sensitive; restrict</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>access as appropriate.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Extension for Invocation&lt;/&gt;: If implementing actual FM invocation,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>ensure robust input validation and error handling to prevent misuse.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Summary</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCL_LLM_00_FUNCTION&lt;/&gt; is a foundational class for describing and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(potentially) invoking SAP Function Modules in a way that is consumable</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>by AI/LLM systems or external APIs. It provides robust metadata</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>extraction, structured parameter handling, and JSON serialization,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>making it a key enabler for intelligent automation and code analysis</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>within SAP landscapes. The current implementation focuses on</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>description and serialization, with invocation logic to be extended as</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>needed.</TDLINE>
+    </TLINE>
+    <TLINE/>
+   </LINES>
   </asx:values>
  </asx:abap>
 </abapGit>

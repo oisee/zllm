@@ -12,6 +12,680 @@
     <UNICODE>X</UNICODE>
     <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>ABAP Component Documentation: ZCL_LLM_00_EMBED_OUT</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>1. Component Overview</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Type&lt;/&gt;: ABAP Class (&lt;U&gt;ZCL_LLM_00_EMBED_OUT&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Technical Category&lt;/&gt;: Data Structure Wrapper / LLM Embedding</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>Output Handler</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;System Role&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Part of the $ZLLM_00 package, which implements a lightweight LLM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(Large Language Model) module for SAP.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  This class acts as a typed wrapper for embedding output, typically</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>from an LLM or embedding API (e.g., OpenAI), providing structured</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>access to embedding vectors and related data.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>2. Technical Analysis</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.1 Core Functionality</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Typed access&lt;/&gt; to the embedding result structure (&lt;U&gt;ts_&lt;/&gt;),</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>which is defined as &lt;U&gt;zif_llm_00_types=&gt;ts_embed_out&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Convenience methods&lt;/&gt; to extract the embedding vector in</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>different formats:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  As a table of coordinates (&lt;U&gt;tt_coord&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  As a quantized bit vector (&lt;U&gt;ty_v&lt;/&gt;)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;JSON serialization/deserialization&lt;/&gt; for easy integration with</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>APIs and persistence.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Factory methods&lt;/&gt; for instantiation from ABAP structures or JSON</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>strings.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.2 Technical Architecture</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Interfaces&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;zif_llm_00_types&lt;/&gt;: Provides type definitions for embedding</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>output and vector types.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;zif_llm_00_json&lt;/&gt;: Standardizes JSON</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>serialization/deserialization.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Aliases&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;to_json&lt;/&gt; is aliased for &lt;U&gt;zif_llm_00_json~to_json&lt;/&gt; for easier</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>access.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Key Methods&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;new&lt;/&gt;: Factory method to create an instance from a structure.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;new_from_json&lt;/&gt;: Factory method to create an instance from a JSON</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>string.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;get_&lt;/&gt;: Returns the internal embedding output structure.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;get_vector&lt;/&gt;: Returns the embedding vector as a table of</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>coordinates.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;get_vector_q1b&lt;/&gt;: Returns a quantized (bit-packed) version of the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>embedding vector.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Dependencies&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;zif_llm_00_types&lt;/&gt;: For type definitions.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;zif_llm_00_json&lt;/&gt;: For JSON handling.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;zcl_oai_01_json&lt;/&gt;: For JSON parsing (in &lt;U&gt;new_from_json&lt;/&gt;).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;zcl_llm_00_json&lt;/&gt;: For JSON serialization (in &lt;U&gt;to_json&lt;/&gt;).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Flow&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Input: Embedding output structure or JSON string.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Output: Structured embedding data, vector representations, or JSON.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>2.3 Implementation Details</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Members&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;ms_&lt;/&gt;: Stores the embedding output structure.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;gv_msg&lt;/&gt;: Reserved for messages (not actively used in current</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>code).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Constructor&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Private, only accessible via factory methods.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Initializes the internal structure (&lt;U&gt;ms_&lt;/&gt;).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Vector Extraction&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;get_vector&lt;/&gt;: Returns the embedding vector from the first data</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>entry (&lt;U&gt;ms_-data[ 1 ]-embedding&lt;/&gt;).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;get_vector_q1b&lt;/&gt;: Converts the vector into a bit-packed format</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>(&lt;U&gt;ty_v&lt;/&gt;), setting a bit if the corresponding value is negative.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>This is useful for quantization or efficient storage.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;JSON Handling&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;new_from_json&lt;/&gt;: Uses &lt;U&gt;zcl_oai_01_json=&gt;from_json&lt;/&gt; to parse</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>JSON into the structure.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  &lt;U&gt;to_json&lt;/&gt;: Uses &lt;U&gt;zcl_llm_00_json=&gt;to_json&lt;/&gt; for serialization.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  The constructor and &lt;U&gt;new&lt;/&gt; method can raise exception &lt;U&gt;zcx_s&lt;/&gt;,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>but no explicit error handling is implemented in the shown code.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Performance&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Vector extraction is efficient, but &lt;U&gt;get_vector_q1b&lt;/&gt; loops over a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>fixed size (1536), which should be monitored if vector sizes change.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Security&lt;/&gt;:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  No direct security logic, but as this class handles data from</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>external APIs (potentially user input), upstream validation is</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>recommended.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>3. Business Context</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.1 Business Purpose</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Domain&lt;/&gt;: AI/ML integration, specifically embedding operations</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>for text or other data within SAP.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Purpose&lt;/&gt;: Provides a standardized, typed way to handle and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>process embedding results from LLMs (e.g., OpenAI), enabling downstream</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>analytics, similarity search, or further AI-driven processing.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.2 Process Integration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Used wherever embedding results are needed in SAP, such as:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Semantic search</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Document similarity</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>  Feature extraction for downstream ML tasks</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Integrates with the broader $ZLLM_00 module, which supports LLM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>operations, caching, and analytics.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>3.3 Operational Impact</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Reliability&lt;/&gt;: Ensures embedding results are handled in a</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>type-safe, consistent manner.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Extensibility&lt;/&gt;: Can be extended to support additional vector</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>formats or post-processing.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Maintainability&lt;/&gt;: Encapsulates embedding logic, reducing</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>duplication and errors.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.1 Configuration</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  No direct configuration required.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Relies on correct type definitions in &lt;U&gt;zif_llm_00_types&lt;/&gt;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  JSON parsing depends on the structure matching the expected schema.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.2 Monitoring</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Monitor for changes in embedding vector size (currently hardcoded as</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>1536 in &lt;U&gt;get_vector_q1b&lt;/&gt;).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Ensure JSON input matches expected structure to avoid runtime errors.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>4.3 Common Issues</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;JSON Structure Mismatch&lt;/&gt;: If the JSON does not match</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;ts_embed_out&lt;/&gt;, instantiation will fail.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Vector Size Changes&lt;/&gt;: If embedding models change vector size,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;get_vector_q1b&lt;/&gt; may need adjustment.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Error Handling&lt;/&gt;: Exception &lt;U&gt;zcx_s&lt;/&gt; is declared but not</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>actively handled; ensure calling code manages exceptions.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>5. Additional Information</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Author&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Last Updated&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Version&lt;/&gt;: Not specified</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U3</TDFORMAT>
+     <TDLINE>Code Example: Usage Pattern</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>&quot; Create from ABAP structure</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lo_embed_out) = zcl_llm_00_embed_out=&gt;new( is_ = ls_embed_out ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&quot; Create from JSON string DATA(lo_embed_out) =</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>zcl_llm_00_embed_out=&gt;new_from_json( iv_ = lv_json ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&quot; Get embedding vector DATA(lt_vector) = lo_embed_out-&gt;get_vector( ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&quot; Get quantized bit vector DATA(lv_q1b) = lo_embed_out-&gt;get_vector_q1b(</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>&quot; Serialize to JSON</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/(</TDFORMAT>
+     <TDLINE>DATA(lv_json) = lo_embed_out-&gt;to_json( ).</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Related Components and Data Model</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Data Model&lt;/&gt;: Embedding results may be persisted in or retrieved</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>from tables such as &lt;U&gt;ZLLM_00_BIN&lt;/&gt; (for binary data) or</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZLLM_00_CACHE&lt;/&gt; (for caching).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Integration&lt;/&gt;: Used by higher-level LLM orchestration classes and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>demo reports (see &lt;U&gt;$ZLLM_00&lt;/&gt; package).</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  &lt;B&gt;Type Definitions&lt;/&gt;: Relies on &lt;U&gt;zif_llm_00_types&lt;/&gt; for</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>structure and vector types.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Security Considerations</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Ensure that any data passed to or from external APIs is validated and</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>sanitized.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B1</TDFORMAT>
+     <TDLINE>  Handle exceptions robustly to avoid exposing sensitive information in</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>error messages.</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>U2</TDFORMAT>
+     <TDLINE>Summary</TDLINE>
+    </TLINE>
+    <TLINE/>
+    <TLINE/>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;U&gt;ZCL_LLM_00_EMBED_OUT&lt;/&gt; is a focused, utility class for handling</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>embedding outputs in SAP&apos;s LLM integration layer. It provides type-safe</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>access, vector extraction, and JSON (de)serialization, supporting</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>robust AI/ML workflows within the SAP environment. Maintenance is</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>straightforward, but attention should be paid to vector size</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>assumptions and JSON schema alignment.</TDLINE>
+    </TLINE>
+    <TLINE/>
+   </LINES>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CMPNAME>GET_VECTOR</CMPNAME>

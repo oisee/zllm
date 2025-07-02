@@ -16,6 +16,815 @@
      <LENGTH>26</LENGTH>
     </item>
    </TPOOL>
+   <LONGTEXTS>
+    <item>
+     <DOKIL>
+      <ID>RE</ID>
+      <OBJECT>ZLLM_00_FLOW_DEMO</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0001</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00171</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZLLM_00_FLOW_DEMO</TDNAME>
+      <TDID>RE</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>ABAP Component Documentation: ZLLM_00_FLOW_DEMO (Report ZLLM_01_CHAIN_TE</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>1. Component Overview</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Type&lt;/&gt;: Executable Report (ABAP Report)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Technical Category&lt;/&gt;: Demo/Prototype for LLM (Large Language Mod</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;System Role&lt;/&gt;: Demonstration and testing of chained LLM prompt e</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;Namespace/Location&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  &lt;I&gt; Custom namespace (&lt;U&gt;ZLLM_00&lt;/&gt;&lt;/&gt;), part of the $ZLLM_00 package,</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;Component Role in System Architecture&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * This report acts as a demonstration client for the LLM orchestration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>2. Technical Analysis</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.1 Core Functionality</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>This report demonstrates the following sequence:</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. &lt;B&gt;Parameter Input&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Accepts two free-text parameters (&lt;U&gt;p_prmpt1&lt;/&gt;, &lt;U&gt;p_prmpt2&lt;/&gt;)</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. &lt;B&gt;LLM Factory and Instance Creation&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Instantiates a factory object (&lt;U&gt;zcl_llm=&gt;new&lt;/&gt;) to obtain an L</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. &lt;B&gt;Step Construction&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Creates two LLM &quot;steps&quot; (&lt;U&gt;zcl_llm_00_step_lazy=&gt;new_from_string</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  4. &lt;B&gt;Flow Construction&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Chains the two steps into a &quot;flow&quot; (&lt;U&gt;zcl_llm_00_flow_lazy=&gt;new&lt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  5. &lt;B&gt;Execution and Result Handling&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Executes the flow, collects the result, and converts it to a stri</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  6. &lt;B&gt;Markdown Rendering&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Converts the result string to HTML using a Markdown renderer (&lt;U&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  7. &lt;B&gt;Output&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Displays the HTML result in the SAP GUI using &lt;U&gt;cl_demo_output=&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;User Interaction&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * The report is triggered via the selection screen (standard SAP repor</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.2 Technical Architecture</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Interfaces</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;User Parameters&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;p_prmpt1&lt;/&gt; (string): First LLM prompt (default: &quot;Write a cute</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;p_prmpt2&lt;/&gt; (string): Second LLM prompt (default: &quot;Summarize t</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Class lcl_&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Local class encapsulating the demo logic, with a static construct</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Dependencies</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Core LLM Framework Classes&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm&lt;/&gt;: LLM factory and configuration</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_step_lazy&lt;/&gt;: Represents a single LLM prompt/step</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_flow_lazy&lt;/&gt;: Chains multiple steps for sequential</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_markdown&lt;/&gt;: Markdown-to-HTML renderer</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;cl_demo_output&lt;/&gt;: SAP standard class for HTML output in GUI</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Related Data Model&lt;/&gt; (from [RELATED]):</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - No direct DB operations, but the LLM framework interacts with tem</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Data Flow</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. &lt;B&gt;Input&lt;/&gt;: User enters two prompts.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. &lt;B&gt;Processing&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Prompts are wrapped as LLM steps.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Steps are chained into a flow.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Flow is executed, passing outputs between steps.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. &lt;B&gt;Output&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Final result is rendered as HTML and displayed.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.3 Implementation Details</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Design Patterns&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Factory pattern for LLM instantiation.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Chain-of-responsibility or pipeline pattern for step/flow executi</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Encapsulation via local class (&lt;U&gt;lcl_&lt;/&gt;) for modular demo logic</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Algorithm&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - No complex algorithm; the focus is on orchestration and integrati</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Database Interactions&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - None directly in this report. Underlying LLM framework may use te</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;UI Elements&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - SAP selection screen for parameter input.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - HTML output displayed in SAP GUI.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Minimal in this demo; relies on framework classes for error propa</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Security&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - No direct security checks in the report. Security for LLM access</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>3. Business Context</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.1 Business Purpose</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Objective&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - To demonstrate and test the chaining of LLM prompts within SAP, e</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Significance&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Showcases how SAP can leverage modern AI/LLM capabilities for bus</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.2 Process Integration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Role in Business Processes&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Prototype for integrating LLM-driven automation into SAP workflow</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Can be adapted for business processes requiring multi-step AI rea</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.3 Operational Impact</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Effects&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - No direct impact on business operations in its demo form.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Provides a foundation for future business applications leveraging</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.1 Configuration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Environment&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Requires LLM environment configuration (&lt;U&gt;DEFAULT.ENV&lt;/&gt;).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Underlying LLM framework must be set up and connected to an LLM p</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Parameters&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Prompts can be customized via selection screen.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.2 Monitoring</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Execution Monitoring&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Standard SAP job/report monitoring.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - LLM framework may provide logs or error traces.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.3 Common Issues</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;LLM Connectivity&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Errors if LLM environment is not configured or accessible.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Framework Errors&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Any issues in the LLM framework (e.g., step creation, flow execut</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Output Rendering&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Markdown-to-HTML conversion may fail for malformed input.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>5. Additional Information</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Author&lt;/&gt;: Not specified (custom development, likely by SAP techn</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Last Updated&lt;/&gt;: Not specified</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Version&lt;/&gt;: Prototype/Demo</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>&lt;B&gt;References and Related Components&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;LLM Framework&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm&lt;/&gt;, &lt;U&gt;zcl_llm_00_step_lazy&lt;/&gt;, &lt;U&gt;zcl_llm_00_flow_laz</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Data Model&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - ZLLM_00* tables for graph-based LLM orchestration (see [RELATED]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Other Demo Reports&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;R.ZLLM_00_ONBOARD&lt;/&gt;, &lt;U&gt;R.ZLLM_00_PREDICTOKEN_DEMO&lt;/&gt;, &lt;U&gt;R.Z</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>&lt;B&gt;Summary Table&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>| Element         | Description                                      |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>|-----------------|--------------------------------------------------|</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| p_prmpt1        | First LLM prompt (user input)                    |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| p_prmpt2        | Second LLM prompt (user input)                   |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| lcl_            | Local class encapsulating demo logic             |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| zcl_llm         | LLM factory/configuration                        |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| zcl_llm_00_step_lazy | LLM step (prompt execution)                 |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| zcl_llm_00_flow_lazy | LLM flow (step chaining)                    |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| zcl_llm_00_markdown  | Markdown-to-HTML renderer                   |</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| cl_demo_output  | SAP standard HTML output                         |</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>&lt;B&gt;Example Execution Flow&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. User enters two prompts on the selection screen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. On execution, the report:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Instantiates the LLM factory and LLM instance.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Creates two LLM steps from the prompts.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Chains the steps into a flow.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Executes the flow, passing the output of the first step as input</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Converts the final result to HTML and displays it.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>&lt;B&gt;Security Considerations&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Ensure LLM access is restricted to authorized users.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Validate and sanitize user input to prevent prompt injection or misu</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Monitor LLM output for sensitive data leakage.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>&lt;B&gt;Diagram: High-Level Flow&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>flowchart TD</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    UserInput[&quot;User enters prompts&lt;br/&gt;p_prmpt1, p_prmpt2&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    LLMFactory[&quot;zcl_llm=&gt;new&lt;br/&gt;LLM Factory&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    LLMInstance[&quot;get_llm&lt;br/&gt;LLM Instance&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    Step1[&quot;zcl_llm_00_step_lazy=&gt;new_from_string&lt;br/&gt;Step 1&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    Step2[&quot;zcl_llm_00_step_lazy=&gt;new_from_string&lt;br/&gt;Step 2&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    Flow[&quot;zcl_llm_00_flow_lazy=&gt;new&lt;br/&gt;Flow (Step 1 -&gt; Step 2)&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    Result[&quot;Flow-&gt;to_step()-&gt;start()&lt;br/&gt;Result&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    Markdown[&quot;zcl_llm_00_markdown=&gt;new&lt;br/&gt;Markdown to HTML&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    Output[&quot;cl_demo_output=&gt;display_html&lt;br/&gt;Display in SAP GUI&quot;]</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>UserInput --&gt; LLMFactory</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>LLMFactory --&gt; LLMInstance</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>LLMInstance --&gt; Step1</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>LLMInstance --&gt; Step2</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>Step1 --&gt; Flow</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>Step2 --&gt; Flow</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>Flow --&gt; Result</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>Result --&gt; Markdown</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>Markdown --&gt; Output</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;In summary:&lt;/&gt;   This report is a demonstration of how to chain</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>multiple LLM prompts in SAP, execute them sequentially, and present the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>results in a user-friendly HTML format. It leverages a modular LLM</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>framework and serves as a template for more advanced AI-driven business</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>process automation in SAP environments.</TDLINE>
+      </TLINE>
+      <TLINE/>
+     </LINES>
+    </item>
+   </LONGTEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

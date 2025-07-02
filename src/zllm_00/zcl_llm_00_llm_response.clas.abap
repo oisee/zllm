@@ -18,42 +18,44 @@ CLASS zcl_llm_00_llm_response DEFINITION
         !iv_ TYPE sap_bool
         !io_ TYPE REF TO zif_llm_00_trace OPTIONAL .
   PROTECTED SECTION.
-  PRIVATE SECTION.
+private section.
 
-    DATA mo_ TYPE REF TO if_http_client .
-    DATA mv_k TYPE string .
-    DATA mv_v TYPE string .
-    DATA mv_msg TYPE string .
-    DATA mo_cache TYPE REF TO zif_llm_00_cache .
+  data MO_ type ref to IF_HTTP_CLIENT .
+  data MV_K type STRING .
+  data MV_V type STRING .
+  data MV_MSG type STRING .
+  data MO_CACHE type ref to ZIF_LLM_00_CACHE .
+  class-data GV_DEBUG type SAP_BOOL .
+  class-data GO_TRACE type ref to ZIF_LLM_00_TRACE .
+  data MV_RETRY_COUNT type I .
+  data MV_MAX_RETRIES type I value 15 ##NO_TEXT.
 
-    METHODS constructor
-      IMPORTING
-        !io_      TYPE REF TO if_http_client
-        !iv_k     TYPE string
-        !iv_v     TYPE string
-        !io_cache TYPE REF TO zif_llm_00_cache .
-    METHODS api_receive
-      IMPORTING
-        !io_       TYPE REF TO if_http_client
-      RETURNING
-        VALUE(rv_) TYPE string
-      RAISING
-        RESUMABLE(zcx_s) .
-    METHODS raise_last_error
-      IMPORTING
-        !io_ TYPE REF TO if_http_client
-      RAISING
-        zcx_s .
-
-    CLASS-DATA gv_debug TYPE sap_bool .
-    CLASS-DATA go_trace TYPE REF TO zif_llm_00_trace.
-
-    METHODS _in  IMPORTING iv_   TYPE string
-                           iv_id TYPE string OPTIONAL.
-    METHODS _out IMPORTING iv_   TYPE string
-                           iv_id TYPE string OPTIONAL.
-    DATA: mv_retry_count TYPE i.
-    DATA: mv_max_retries TYPE i VALUE 12.
+  methods CONSTRUCTOR
+    importing
+      !IO_ type ref to IF_HTTP_CLIENT
+      !IV_K type STRING
+      !IV_V type STRING
+      !IO_CACHE type ref to ZIF_LLM_00_CACHE .
+  methods API_RECEIVE
+    importing
+      !IO_ type ref to IF_HTTP_CLIENT
+    returning
+      value(RV_) type STRING
+    raising
+      resumable(ZCX_S) .
+  methods RAISE_LAST_ERROR
+    importing
+      !IO_ type ref to IF_HTTP_CLIENT
+    raising
+      ZCX_S .
+  methods _IN
+    importing
+      !IV_ type STRING
+      !IV_ID type STRING optional .
+  methods _OUT
+    importing
+      !IV_ type STRING
+      !IV_ID type STRING optional .
 ENDCLASS.
 
 
@@ -123,6 +125,12 @@ CLASS ZCL_LLM_00_LLM_RESPONSE IMPLEMENTATION.
        iv_v IS INITIAL.         "bypass cache if the expected value is supplied
       mv_v   = mo_cache->get( iv_k ).
     ENDIF.
+
+    mv_max_retries = zcl_llm_00_tvarvc=>get_integer_by_name(
+      iv_name    = 'ZLLM_MAX_RETRIES'
+      iv_default = 15
+    ).
+
   ENDMETHOD.
 
 

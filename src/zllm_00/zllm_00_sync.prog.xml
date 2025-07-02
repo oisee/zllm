@@ -172,6 +172,719 @@
      <LENGTH>30</LENGTH>
     </item>
    </TPOOL>
+   <LONGTEXTS>
+    <item>
+     <DOKIL>
+      <ID>RE</ID>
+      <OBJECT>ZLLM_00_SYNC</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0001</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00146</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZLLM_00_SYNC</TDNAME>
+      <TDID>RE</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>ABAP Component Documentation: ZLLM_00_SYNC</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>1. Component Overview</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Type&lt;/&gt;: Report (Executable Program)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Technical Category&lt;/&gt;: File Synchronization Utility (Folder &lt;-&gt; S</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;System Role&lt;/&gt;: Developer/Administrator Tool for synchronizing fi</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>Summary</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;U&gt;ZLLM_00_SYNC&lt;/&gt; is a utility report in the $ZLLM_00 package designed</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>to synchronize files between a local folder, SAP package (SMW0), and a</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>custom binary table (ZLLM_00_BIN). It provides a flexible interface for</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>uploading, downloading, and deleting files, supporting various file</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>types and masks, and is intended for technical users managing LLM</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>(Lightweight LLM Module) artifacts or related files in SAP.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>2. Technical Analysis</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.1 Core Functionality</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Purpose&lt;/&gt;: Synchronize files between a local folder, SAP MIME re</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Modes&lt;/&gt;: Supports both upload (local → SAP) and download (SAP →</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  &lt;I&gt; &lt;B&gt;File Filtering&lt;/&gt;: Allows filtering files by masks (e.g., &lt;/&gt;.e</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Codec Support&lt;/&gt;: Optionally encodes/decodes files using a codec</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;User Interaction&lt;/&gt;: Provides a selection screen with radio butto</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.2 Technical Architecture</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Interfaces</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Selection Screen&lt;/&gt;: Multiple blocks for input/output configurati</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Local Class (&lt;U&gt;lcl_&lt;/&gt;)&lt;/&gt;: Encapsulates file listing, upload, a</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;File List Interfaces&lt;/&gt;: Uses &lt;U&gt;zif_llm_00_file_list&lt;/&gt; and its</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Dependencies</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Classes&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_codec&lt;/&gt;, &lt;U&gt;zcl_llm_00_codec_mock&lt;/&gt;: For file enc</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_file_list_local&lt;/&gt;, &lt;U&gt;zcl_llm_00_file_list_smw0&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_list&lt;/&gt;, &lt;U&gt;zcl_llm_00_json&lt;/&gt;: For list and JSON o</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Tables&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;ZLLM_00_BIN&lt;/&gt;: Custom binary storage for files.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;SAP Standard&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;SMW0&lt;/&gt;: SAP MIME repository for file storage.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Data Flow</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Input&lt;/&gt;: User specifies source and target (folder, package, or b</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Processing&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Files are listed from the selected source using the appropriate f</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Files are uploaded to the selected target using the corresponding</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Optionally, files can be deleted from the binary table based on m</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Output&lt;/&gt;: JSON summary of the operation is displayed using &lt;U&gt;cl</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.3 Implementation Details</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Selection Screen</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Blocks&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;B01&lt;/&gt;: Input configuration (source folder, package, namespace</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;B05&lt;/&gt;: Output configuration (target folder, package, namespac</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;B15&lt;/&gt;: Action selection (copy/delete, bin, mask).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Parameters&lt;/&gt;: Allow detailed control over source/target, file ma</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Local Class (&lt;U&gt;lcl_&lt;/&gt;)</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Methods&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;new&lt;/&gt;: Instantiates the class and initializes the codec.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;start&lt;/&gt;: Main entry point; handles copy/delete logic based on</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;get_fl_in&lt;/&gt; / &lt;U&gt;get_fl_out&lt;/&gt;: Returns file list objects for</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;upload_to_fl&lt;/&gt;: Loops through input files and saves them to t</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;delete&lt;/&gt;: Deletes files from the binary table based on mask a</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Dynamic Screen Logic</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;AT SELECTION-SCREEN OUTPUT&lt;/&gt;: Dynamically enables/disables input</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Initialization</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;INITIALIZATION Event&lt;/&gt;: Sets default values for folder and bin p</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Execution</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;AT SELECTION-SCREEN&lt;/&gt;: Triggers the main operation (&lt;U&gt;start&lt;/&gt;)</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Error Handling</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Minimal explicit error handling; relies on standard ABAP exceptions</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Performance</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Designed for batch operations; performance depends on the number and</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Security</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;File Access&lt;/&gt;: Local folder access is subject to SAP kernel and</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;SAP Package/Bin Access&lt;/&gt;: Requires appropriate authorizations fo</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;No explicit authorization checks&lt;/&gt; in the report; should be run</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>3. Business Context</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.1 Business Purpose</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Domain&lt;/&gt;: Technical administration, DevOps, and LLM (Lightweight</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Objective&lt;/&gt;: Simplify the process of synchronizing code, configu</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.2 Process Integration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Supported Scenarios&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Uploading new or updated LLM artifacts (e.g., patterns, environme</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Downloading files from SAP to local for backup or analysis.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Cleaning up obsolete files from the custom binary table.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Integration Points&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Works in conjunction with other $ZLLM_00 components for LLM-based</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.3 Operational Impact</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Efficiency&lt;/&gt;: Reduces manual effort in file management for techn</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Consistency&lt;/&gt;: Ensures that local and SAP file repositories are</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Maintainability&lt;/&gt;: Supports lifecycle management of LLM-related</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.1 Configuration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Parameterization&lt;/&gt;: Highly configurable via selection screen; no</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Masks&lt;/&gt;: File masks allow fine-grained control over which files</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Codec&lt;/&gt;: Option to use real or mock codec for compatibility.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.2 Monitoring</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Output&lt;/&gt;: JSON summary of processed files is displayed at the en</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Logs&lt;/&gt;: No explicit logging; consider adding application log int</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.3 Common Issues</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Authorization Errors&lt;/&gt;: Ensure users have permissions for file a</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;File Path Issues&lt;/&gt;: Local folder paths must be accessible from t</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Mask Mismatches&lt;/&gt;: Incorrect file masks may result in missing or</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Codec Compatibility&lt;/&gt;: Ensure the correct codec is selected for</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>5. Additional Information</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Author&lt;/&gt;: Not specified in code; likely SAP technical team or LL</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Last Updated&lt;/&gt;: Not specified; check transport or version manage</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Version&lt;/&gt;: Not specified; part of $ZLLM_00 package.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>References and Related Components</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;$ZLLM_00 Data Model&lt;/&gt;: See [Related Components] for details on Z</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;File List Classes&lt;/&gt;: &lt;U&gt;zcl_llm_00_file_list_local&lt;/&gt;, &lt;U&gt;zcl_ll</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Codec Classes&lt;/&gt;: &lt;U&gt;zcl_llm_00_codec&lt;/&gt;, &lt;U&gt;zcl_llm_00_codec_moc</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Other Reports&lt;/&gt;: &lt;U&gt;ZLLM_00_FLOW_DEMO&lt;/&gt;, &lt;U&gt;ZLLM_00_ONBOARD&lt;/&gt;,</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Example Usage</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;To upload files from a local folder to SAP:&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. Set &lt;U&gt;P_FOLD_I&lt;/&gt; to the source folder.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. Set &lt;U&gt;P_PACK_O&lt;/&gt; and &lt;U&gt;P_NS_O&lt;/&gt; to the target SAP package and n</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. Select the appropriate radio buttons for source and target.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  4. Click &quot;Execute&quot; to start the synchronization.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;To delete files from the binary table:&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. Select &quot;Delete&quot; action in block B15.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. Specify &lt;U&gt;P_BIN_D&lt;/&gt; and &lt;U&gt;P_MASK&lt;/&gt; as needed.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. Click &quot;Execute&quot;.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Security Considerations</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Only authorized users should run this report due to its ability to m</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * No explicit checks for file content or type; ensure only trusted fil</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Consider implementing additional logging or authorization checks for</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Maintenance Recommendations</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Periodically review and clean up ZLLM_00_BIN to avoid storage bloat.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Monitor for changes in file list or codec class interfaces.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Update file masks as new artifact types are introduced.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Diagram: High-Level Data Flow</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>flowchart TD</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    User[&quot;User (Selection Screen)&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    User --&gt;|Selects Source/Target/Action| ZLLM_00_SYNC</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    ZLLM_00_SYNC --&gt;|Lists Files| FileListClass[&quot;File List Class (Local/</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    ZLLM_00_SYNC --&gt;|Uploads/Downloads Files| FileListClass</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    ZLLM_00_SYNC --&gt;|Encodes/Decodes Files| CodecClass[&quot;Codec Class&quot;]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    ZLLM_00_SYNC --&gt;|Deletes Files| ZLLM_00_BIN</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/(</TDFORMAT>
+       <TDLINE>    ZLLM_00_SYNC --&gt;|Displays Summary| Output[&quot;JSON Output&quot;]</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;In summary, &lt;U&gt;ZLLM_00_SYNC&lt;/&gt; is a robust, flexible tool for</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>synchronizing files between local and SAP environments, supporting the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>technical needs of LLM module management and broader DevOps scenarios</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>within SAP.&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE/>
+     </LINES>
+    </item>
+   </LONGTEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

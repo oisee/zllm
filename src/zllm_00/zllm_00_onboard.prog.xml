@@ -148,6 +148,696 @@
      <LENGTH>18</LENGTH>
     </item>
    </TPOOL>
+   <LONGTEXTS>
+    <item>
+     <DOKIL>
+      <ID>RE</ID>
+      <OBJECT>ZLLM_00_ONBOARD</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0001</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00144</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZLLM_00_ONBOARD</TDNAME>
+      <TDID>RE</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>ABAP Component Documentation: ZLLM_00_ONBOARD</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>1. Component Overview</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Type&lt;/&gt;: ABAP Report (Executable Program)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Technical Category&lt;/&gt;: LLM (Large Language Model) Onboarding, Con</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;System Role&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Entry point for onboarding and managing Azure OpenAI LLM configur</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Provides a user interface for configuring, testing, and saving en</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Bridges SAP and Azure OpenAI LLMs for downstream code intelligenc</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>2. Technical Analysis</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.1 Core Functionality</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;ZLLM_00_ONBOARD&lt;/&gt; is a utility report designed to streamline the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>onboarding and management of Azure OpenAI LLM configurations within</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>SAP. Its main functions are:</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Multi-LLM Configuration&lt;/&gt;: Supports up to four LLM variants (Def</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Interactive Testing&lt;/&gt;: Allows users to test connectivity and bas</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Environment File Generation&lt;/&gt;: Generates and saves &lt;U&gt;.env&lt;/&gt;-st</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Validation&lt;/&gt;: Performs input validation for URLs and API keys, e</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;User Interface&lt;/&gt;: Provides a selection screen with grouped param</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Expert Mode&lt;/&gt;: Allows advanced users to access and edit addition</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.2 Technical Architecture</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Interfaces</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Selection Screen&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Parameters for each LLM variant (URL, API key, enablement checkbo</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Test prompt input.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Binary storage key for environment files.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Function keys for batch actions (Test All, Save All, Test &amp;(and)&amp;</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Local Classes&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;lcl_llm_tester&lt;/&gt;: Handles LLM connectivity and test execution</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;lcl_env_manager&lt;/&gt;: Manages creation and saving of environment</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;lcl_config_manager&lt;/&gt;: Maps screen parameters to internal conf</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;lcl_main&lt;/&gt;: Orchestrates validation, testing, and saving oper</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Dependencies</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  &lt;I&gt; &lt;/&gt;&lt;I&gt;ZLLM_00&lt;/&gt; Classes**:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcl_llm_00_llm_lazy&lt;/&gt;, &lt;U&gt;zcl_llm_00_dotenv&lt;/&gt;, &lt;U&gt;zcl_llm_00</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;SAP Standard&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;cl_demo_output&lt;/&gt; for output display.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;sscrfields&lt;/&gt; for dynamic screen manipulation.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Custom Exception&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;U&gt;zcx_s&lt;/&gt; for error handling.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>Data Flow</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. &lt;B&gt;User Input&lt;/&gt;: User enters LLM URLs, API keys, and enables desir</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. &lt;B&gt;Validation&lt;/&gt;: Inputs are validated for format and completeness.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. &lt;B&gt;Testing&lt;/&gt;: For each enabled LLM, a test prompt is sent and the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  4. &lt;B&gt;Saving&lt;/&gt;: For each enabled and valid LLM, an environment file i</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  5. &lt;B&gt;UI Feedback&lt;/&gt;: Results and errors are displayed using &lt;U&gt;cl_dem</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.3 Implementation Details</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Design Patterns&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;Factory/Builder&lt;/&gt;: Local classes use &lt;U&gt;new&lt;/&gt; methods for in</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;Separation of Concerns&lt;/&gt;: Testing, environment management, co</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;Table-driven&lt;/&gt;: LLM configurations are managed as an internal</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Screen Logic&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Dynamic enablement/disablement of parameter fields based on check</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Function keys mapped to main actions.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - User-specific restrictions for binary storage field.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Validation&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Checks for placeholder values (&lt;U&gt;&lt;...&gt;&lt;/&gt;) in URLs and API keys.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Ensures API key contains only allowed characters.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Ensures URL contains required Azure OpenAI path.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Uses TRY/CATCH blocks for all major operations.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Errors are displayed via &lt;U&gt;cl_demo_output&lt;/&gt; and SAP messages.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Integration Points&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Relies on ZLLM_00* classes for LLM interaction, environment file</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Designed to work with the ZLLM_00 data model (see [RELATED]).</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Security&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - API keys are handled as plain strings; ensure secure storage and</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - Binary storage access is restricted for certain users.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>3. Business Context</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.1 Business Purpose</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Onboarding&lt;/&gt;: Simplifies the process of connecting SAP to Azure</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Governance&lt;/&gt;: Ensures only valid and tested LLM configurations a</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Enablement&lt;/&gt;: Supports multiple LLM variants for different busin</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.2 Process Integration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Initial Setup&lt;/&gt;: Used by administrators or technical users to on</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Ongoing Maintenance&lt;/&gt;: Allows periodic testing and updating of L</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Downstream Consumption&lt;/&gt;: Environment files generated by this re</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.3 Operational Impact</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Reliability&lt;/&gt;: Reduces runtime errors by ensuring only tested an</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Flexibility&lt;/&gt;: Supports rapid switching or addition of LLM varia</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Auditability&lt;/&gt;: Centralizes LLM configuration management for eas</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.1 Configuration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Environment Files&lt;/&gt;: Saved in binary storage (&lt;U&gt;ZLLM_00_BIN&lt;/&gt;)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Parameter Defaults&lt;/&gt;: Placeholders must be replaced with actual</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;User Restrictions&lt;/&gt;: Binary storage field is editable only for a</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.2 Monitoring</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Test Results&lt;/&gt;: Output of LLM tests is displayed interactively;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Environment File Saves&lt;/&gt;: Success/failure of file saves is repor</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.3 Common Issues</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Invalid API Keys/URLs&lt;/&gt;: Placeholders or incorrect formats will</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Binary Storage Access&lt;/&gt;: Unauthorized users may not be able to s</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;LLM Connectivity&lt;/&gt;: Network or credential issues will be surface</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>5. Additional Information</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Author&lt;/&gt;: [Not specified in code]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Last Updated&lt;/&gt;: [Not specified in code]</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Version&lt;/&gt;: [Not specified in code]</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>6. Related Components and Data Model</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>6.1 Key Dependencies</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZLLM_00_NODE / ZLLM_00_EDGE&lt;/&gt;: Core graph data model for code in</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZLLM_00_BIN&lt;/&gt;: Binary storage for environment files.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZCL_LLM_00_LLM_LAZY&lt;/&gt;: LLM interaction class.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZCL_LLM_00_DOTENV&lt;/&gt;: Environment file parser/creator.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZCL_LLM_00_STEP_LAZY&lt;/&gt;: LLM step execution.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZCL_LLM_00_PAT&lt;/&gt;: Pattern/prompt management.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZCL_LLM_00_FILE_LIST_BIN / ZCL_LLM_00_FILE_MOCK&lt;/&gt;: File abstract</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>6.2 Data Model Context</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Temporary/Analytical Focus&lt;/&gt;: All ZLLM_00 tables are temporary,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Extensibility&lt;/&gt;: Designed to support future LLM variants and add</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>7. Example Usage Scenario</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. &lt;B&gt;Administrator launches ZLLM_00_ONBOARD&lt;/&gt;.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. &lt;B&gt;Enters Azure OpenAI URLs and API keys&lt;/&gt; for up to four LLM vari</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. &lt;B&gt;Enables desired variants&lt;/&gt; via checkboxes.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  4. &lt;B&gt;Enters a test prompt&lt;/&gt; (e.g., &quot;Tell me a joke about a killeroo.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  5. &lt;B&gt;Presses F1 (Test All)&lt;/&gt;: Each enabled LLM is tested; results ar</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  6. &lt;B&gt;Presses F2 (Save All ENV)&lt;/&gt;: Environment files for each enabled</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  7. &lt;B&gt;Presses F3 (Test &amp;(and)&amp; Save All)&lt;/&gt;: Tests all, then saves if</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  8. &lt;B&gt;Other ZLLM_00 components&lt;/&gt; consume the saved environment files</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>8. Security Considerations</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;API Key Handling&lt;/&gt;: API keys are visible in the UI and stored in</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;User Access&lt;/&gt;: Restrict access to onboarding report and binary s</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Audit Logging&lt;/&gt;: Consider logging configuration changes for comp</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>9. Maintenance Recommendations</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Regularly review and update&lt;/&gt; LLM URLs and API keys.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Test all configurations&lt;/&gt; after any change to Azure OpenAI deplo</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Clean up unused environment files&lt;/&gt; from binary storage to avoid</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Monitor for SAP and Azure OpenAI API changes&lt;/&gt; that may require</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>10. References</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZLLM_00 Data Model Analysis&lt;/&gt;: See [RELATED] section for detaile</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;SAP Help&lt;/&gt;: For selection screen and dynamic screen modification</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Azure OpenAI Documentation&lt;/&gt;: For correct URL and API key format</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;In summary&lt;/&gt;, ZLLM_00_ONBOARD is a robust, user-friendly onboarding</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>utility for managing Azure OpenAI LLM configurations in SAP, ensuring</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>only valid and tested endpoints are used, and providing a foundation</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>for advanced AI-driven features in the SAP landscape.</TDLINE>
+      </TLINE>
+      <TLINE/>
+     </LINES>
+    </item>
+   </LONGTEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

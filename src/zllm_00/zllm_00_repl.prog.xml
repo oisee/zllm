@@ -55,6 +55,24 @@
        <INPUT_FLD>X</INPUT_FLD>
       </RPY_DYFATC>
      </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE pbo_0100.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE pai_0100_exit AT EXIT-COMMAND.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE pai_0100.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
     </item>
    </DYNPROS>
    <CUA>
@@ -73,13 +91,6 @@
      </RSMPE_STAT>
     </STA>
     <FUN>
-     <RSMPE_FUNT>
-      <CODE>BACK</CODE>
-      <TEXTNO>001</TEXTNO>
-      <TYPE>E</TYPE>
-      <TEXT_TYPE>S</TEXT_TYPE>
-      <FUN_TEXT>Back</FUN_TEXT>
-     </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>Z1</CODE>
       <TEXTNO>001</TEXTNO>
@@ -111,7 +122,6 @@
       <TEXT_NAME>ICON_ACTIVATE</TEXT_NAME>
       <ICON_ID>@3C@</ICON_ID>
       <FUN_TEXT>Compile</FUN_TEXT>
-      <INFO_TEXT>Compile the Flow</INFO_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>ZRUN</CODE>
@@ -119,16 +129,7 @@
       <TEXT_TYPE>S</TEXT_TYPE>
       <TEXT_NAME>ICON_SYSTEM_PLAY</TEXT_NAME>
       <ICON_ID>@I6@</ICON_ID>
-      <FUN_TEXT>ZRUN</FUN_TEXT>
-      <INFO_TEXT>Execute the Flow</INFO_TEXT>
-     </RSMPE_FUNT>
-     <RSMPE_FUNT>
-      <CODE>ZSAVE</CODE>
-      <TEXTNO>001</TEXTNO>
-      <TEXT_TYPE>S</TEXT_TYPE>
-      <TEXT_NAME>ICON_SYSTEM_SAVE</TEXT_NAME>
-      <ICON_ID>@2L@</ICON_ID>
-      <FUN_TEXT>Save</FUN_TEXT>
+      <FUN_TEXT>Run</FUN_TEXT>
      </RSMPE_FUNT>
     </FUN>
     <BUT>
@@ -136,7 +137,7 @@
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>01</NO>
-      <PFNO>05</PFNO>
+      <PFNO>27</PFNO>
      </RSMPE_BUT>
      <RSMPE_BUT>
       <PFK_CODE>000001</PFK_CODE>
@@ -160,40 +161,28 @@
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>05</NO>
-      <PFNO>25</PFNO>
+      <PFNO>37</PFNO>
      </RSMPE_BUT>
      <RSMPE_BUT>
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>06</NO>
-      <PFNO>26</PFNO>
+      <PFNO>38</PFNO>
      </RSMPE_BUT>
      <RSMPE_BUT>
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>07</NO>
-      <PFNO>27</PFNO>
+      <PFNO>39</PFNO>
      </RSMPE_BUT>
      <RSMPE_BUT>
       <PFK_CODE>000001</PFK_CODE>
       <CODE>0001</CODE>
       <NO>08</NO>
-      <PFNO>28</PFNO>
+      <PFNO>40</PFNO>
      </RSMPE_BUT>
     </BUT>
     <PFK>
-     <RSMPE_PFK>
-      <CODE>000001</CODE>
-      <PFNO>03</PFNO>
-      <FUNCODE>BACK</FUNCODE>
-      <FUNNO>001</FUNNO>
-     </RSMPE_PFK>
-     <RSMPE_PFK>
-      <CODE>000001</CODE>
-      <PFNO>05</PFNO>
-      <FUNCODE>ZCOMPILE</FUNCODE>
-      <FUNNO>001</FUNNO>
-     </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
       <PFNO>08</PFNO>
@@ -202,40 +191,36 @@
      </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
-      <PFNO>11</PFNO>
-      <FUNCODE>ZSAVE</FUNCODE>
+      <PFNO>27</PFNO>
+      <FUNCODE>ZCOMPILE</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
-      <PFNO>25</PFNO>
+      <PFNO>37</PFNO>
       <FUNCODE>Z1</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
-      <PFNO>26</PFNO>
+      <PFNO>38</PFNO>
       <FUNCODE>Z2</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
-      <PFNO>27</PFNO>
+      <PFNO>39</PFNO>
       <FUNCODE>Z3</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
-      <PFNO>28</PFNO>
+      <PFNO>40</PFNO>
       <FUNCODE>Z4</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
     </PFK>
     <SET>
-     <RSMPE_STAF>
-      <STATUS>ZLLM_00_REPL</STATUS>
-      <FUNCTION>BACK</FUNCTION>
-     </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>ZLLM_00_REPL</STATUS>
       <FUNCTION>Z1</FUNCTION>
@@ -260,10 +245,6 @@
       <STATUS>ZLLM_00_REPL</STATUS>
       <FUNCTION>ZRUN</FUNCTION>
      </RSMPE_STAF>
-     <RSMPE_STAF>
-      <STATUS>ZLLM_00_REPL</STATUS>
-      <FUNCTION>ZSAVE</FUNCTION>
-     </RSMPE_STAF>
     </SET>
     <DOC>
      <RSMPE_ATRT>
@@ -286,12 +267,6 @@
       <INT_NOTE>REPL</INT_NOTE>
      </RSMPE_ATRT>
     </DOC>
-    <TIT>
-     <RSMPE_TITT>
-      <CODE>ZLLM_00_REPL</CODE>
-      <TEXT>&amp;, v. &amp; &amp;</TEXT>
-     </RSMPE_TITT>
-    </TIT>
    </CUA>
    <TPOOL>
     <item>

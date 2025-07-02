@@ -16,6 +16,558 @@
      <LENGTH>16</LENGTH>
     </item>
    </TPOOL>
+   <LONGTEXTS>
+    <item>
+     <DOKIL>
+      <ID>RE</ID>
+      <OBJECT>ZLLM_00_PREDICTOKEN_DEMO</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0001</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00112</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZLLM_00_PREDICTOKEN_DEMO</TDNAME>
+      <TDID>RE</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>ABAP Component Documentation: ZLLM_00_PREDICTOKEN_DEMO</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>1. Component Overview</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Type&lt;/&gt;: Report (Executable Program)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Technical Category&lt;/&gt;: Demo/Utility – Token Prediction for LLMs</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;System Role&lt;/&gt;: User-facing utility for demonstrating and testing</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>2. Technical Analysis</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.1 Core Functionality</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>This report provides an interactive demonstration of the token</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>prediction feature for Large Language Models (LLMs) within the SAP</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>system. It allows a user to:</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Select between two model types (GPT or Mistral) via radio buttons.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Enter a free-form query (multi-line text) using the SAP standard tex</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Predict the number of tokens that the selected LLM model would consu</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Display the predicted token count and echo the entered query using t</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;Key Steps:&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. &lt;B&gt;User Input&lt;/&gt;: The user selects a model type and enters a query.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. &lt;B&gt;Token Prediction&lt;/&gt;: The report instantiates the appropriate tok</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. &lt;B&gt;Output&lt;/&gt;: Results are displayed interactively.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.2 Technical Architecture</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Interfaces&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;User Interface&lt;/&gt;: Classic SAP selection screen with radio but</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;Output&lt;/&gt;: Uses &lt;U&gt;CL_DEMO_OUTPUT&lt;/&gt; for displaying results.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Dependencies&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;ZCL_LLM_00_PREDICTOKEN&lt;/&gt;: Core class for token prediction log</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;TERM_CONTROL_EDIT&lt;/&gt;: SAP standard function module for text in</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - &lt;B&gt;CL_DEMO_OUTPUT&lt;/&gt;: SAP demo class for output display.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Data Flow&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     1. User selects model and enters text.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     2. Text is passed to the token predictor.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     3. Token count is calculated and displayed.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>2.3 Implementation Details</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Selection Screen&lt;/&gt;: Two radio buttons (&lt;U&gt;P_R1&lt;/&gt; for GPT, &lt;U&gt;P_</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Text Input&lt;/&gt;: Uses &lt;U&gt;TERM_CONTROL_EDIT&lt;/&gt; to collect multi-line</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Token Prediction&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - The model type is determined by the selected radio button.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - The predictor object is created via &lt;U&gt;ZCL_LLM_00_PREDICTOKEN=&gt;NE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - The method &lt;U&gt;PREDICT_FOR_ITAB&lt;/&gt; is called with the input text t</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Output&lt;/&gt;: The number of tokens is displayed, followed by the inp</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Error Handling&lt;/&gt;:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - If the user cancels the text input, the form exits gracefully.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>     - No explicit error handling for prediction failures; assumes the p</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Performance&lt;/&gt;: Not performance-critical; designed for interactiv</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Security&lt;/&gt;: No sensitive data processed; standard SAP authorizat</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>3. Business Context</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.1 Business Purpose</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>This report serves as a demonstration and utility tool for SAP users</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>and developers to:</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Understand how many tokens a given input would consume for different</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Test and compare tokenization behavior between GPT and Mistral model</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Support development, cost estimation, and optimization of LLM-based</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.2 Process Integration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Standalone Utility&lt;/&gt;: Not directly integrated into business proc</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Development Support&lt;/&gt;: Useful for developers integrating LLMs in</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>3.3 Operational Impact</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;No direct impact&lt;/&gt; on business operations.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Indirect impact&lt;/&gt;: Helps optimize LLM usage, which can affect do</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>4. Support &amp;(and)&amp; Maintenance</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.1 Configuration</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;No special configuration required&lt;/&gt;.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Relies on the availability and correctness of the ZCL_LLM_00_PREDICT</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.2 Monitoring</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Not a production-critical report&lt;/&gt;; no special monitoring requir</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Errors in token prediction logic should be traced to the ZCL_LLM_00_</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>4.3 Common Issues</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;TERM_CONTROL_EDIT&lt;/&gt;: If not available or not configured, text in</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Predictor Class Issues&lt;/&gt;: If ZCL_LLM_00_PREDICTOKEN is not imple</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Authorization&lt;/&gt;: Users need authorization to execute the report</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>5. Additional Information</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Author&lt;/&gt;: Not specified</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Last Updated&lt;/&gt;: Not specified</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Version&lt;/&gt;: Not specified</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U3</TDFORMAT>
+       <TDLINE>References and Related Components</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZCL_LLM_00_PREDICTOKEN&lt;/&gt;: Core class for token prediction (see r</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;ZLLM_00 Data Model&lt;/&gt;: Underlying tables and architecture support</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * &lt;B&gt;Other Demo Reports&lt;/&gt;: See &lt;U&gt;ZLLM_00_FLOW_DEMO&lt;/&gt;, &lt;U&gt;ZLLM_00_ON</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Example Usage</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  1. Run the report &lt;U&gt;ZLLM_00_PREDICTOKEN_DEMO&lt;/&gt;.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  2. Select either &quot;GPT&quot; or &quot;Mistral&quot; as the model type.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  3. Enter your query in the pop-up text editor.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  4. View the predicted token count and your input.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Summary Table</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>| Feature                | Description</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>|</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>|------------------------|----------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>| | Model Selection        | GPT or Mistral (radio buttons)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>  | | Input Method           | Multi-line text via TERM_CONTROL_EDIT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>    | | Token Prediction       | Via ZCL_LLM_00_PREDICTOKEN</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      | | Output                 | Token count and input text</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>(CL_DEMO_OUTPUT)  | | Error Handling         | User cancel handled;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>other errors not shown  |</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Security Considerations</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * No sensitive data processed.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Standard SAP report execution security applies.</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>U2</TDFORMAT>
+       <TDLINE>Maintenance Notes</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * Ensure ZCL_LLM_00_PREDICTOKEN and its dependencies are up-to-date.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * If new LLM models are added, update the report to support additional</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>  * For production use, consider adding more robust error handling and l</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>------------------------------------------------------------------------</TDLINE>
+      </TLINE>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>*</TDFORMAT>
+       <TDLINE>&lt;B&gt;In summary:&lt;/&gt;   ZLLM_00_PREDICTOKEN_DEMO is a simple, interactive</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>SAP report for demonstrating and testing LLM token prediction logic,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>supporting both GPT and Mistral models. It is primarily a developer</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>tool and does not directly impact business processes, but it is</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>valuable for optimizing LLM usage within SAP environments.</TDLINE>
+      </TLINE>
+      <TLINE/>
+     </LINES>
+    </item>
+   </LONGTEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>
