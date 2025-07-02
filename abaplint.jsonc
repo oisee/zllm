@@ -7,6 +7,16 @@
         "url": "https://github.com/open-abap/open-abap-core",
         "files": "/src/**/*.*",
         "folder": "/lint_deps"
+      },
+      {
+        "url": "https://github.com/microsoft/aisdkforsapabap",
+        "files": "/src/**/*.*",
+        "folder": "/aisdk_deps"
+      },
+      {
+        "url": "https://github.com/oisee/zvdb",
+        "files": "/src/**/*.*",
+        "folder": "/zvdb_deps"
       }
     ],
     "syntax": {
@@ -14,7 +24,7 @@
         "errorNamespace": "^(Z|Y|LCL_|TY_|TS_|TT_|TTR_|LIF_)"
     },
     "rules": {
-        "7bit_ascii": true,
+        "7bit_ascii": false,
         "ambiguous_statement": true,
         "parser_missing_space": true,
         "begin_end_names": true,
